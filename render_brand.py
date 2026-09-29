@@ -285,6 +285,111 @@ def build(sg, runic, jbm):
     return assets
 
 
+# ─── Account banners ──────────────────────────────────────────────────────
+# name: (width, height, safe box (x0, y0, x1, y1), layout, export scale, note)
+# The safe box keeps text clear of the profile-picture overlap and of the
+# strips each platform crops on phones.
+BANNERS = {
+    "x-header":                (1500, 500, (520, 110, 1430, 390), "stack", 1,
+                                "X / Twitter, Bluesky, Mastodon header"),
+    "linkedin-company-cover":  (1128, 191, (300, 30, 1090, 161), "row", 2,
+                                "LinkedIn company page cover"),
+    "linkedin-personal-cover": (1584, 396, (560, 60, 1520, 336), "stack", 1,
+                                "LinkedIn personal profile background, for the team"),
+    "facebook-cover":          (1640, 624, (330, 130, 1310, 500), "stack", 1,
+                                "Facebook page cover"),
+    "youtube-banner":          (2560, 1440, (560, 540, 2000, 900), "row", 1,
+                                "YouTube channel banner"),
+}
+
+
+def text_block(sg, runic, jbm, layout, uid):
+    """Eyebrow, wordmark, tagline and URL, laid out at a nominal size.
+
+    Returns (svg body, width, height) with the block's top-left at (0, 0)."""
+    size = 150
+    parts = []
+    if layout == "stack":
+        ey = 18
+        eyebrow, e_end = jbm.run("AI-NATIVE PRODUCTS & CONSULTING", 52, ey, 20, tracking=0.14)
+        parts.append(f'<rect x="0" y="{ey - 8}" width="36" height="2.5" fill="url(#{uid}line)"/>')
+        parts.append(f'<path fill="{GOLD}" d="{eyebrow}"/>')
+        base = ey + 40 + size * 0.70
+        wm, w_end = wordmark(sg, -6, base, size, uid)
+        parts.append(wm)
+        t1, t1_end = sg.run("We build AI-native products,", 0, base + 84, 38, tracking=-0.01)
+        t2, t2_end = sg.run("and help others build them too.", 0, base + 132, 38, tracking=-0.01)
+        parts.append(f'<path fill="{FROST}" d="{t1} {t2}"/>')
+        url, _ = jbm.run("vaerksted.ai", 0, base + 196, 22, tracking=0.08)
+        parts.append(f'<path fill="{MIST}" d="{url}"/>')
+        return "".join(parts), max(w_end, e_end, t1_end, t2_end), base + 200
+    # row: wordmark on the left, tagline stacked to its right
+    base = size * 0.72
+    wm, w_end = wordmark(sg, -6, base, size, uid)
+    parts.append(wm)
+    tx = w_end + 64
+    parts.append(f'<rect x="{f(tx - 32)}" y="8" width="2" height="{f(base - 8)}" fill="url(#{uid}vline)"/>')
+    eyebrow, e_end = jbm.run("AI-NATIVE PRODUCTS & CONSULTING", tx, 26, 18, tracking=0.14)
+    t1, t1_end = sg.run("We build AI-native products,", tx, 70, 32, tracking=-0.01)
+    t2, t2_end = sg.run("and help others build them too.", tx, 110, 32, tracking=-0.01)
+    parts.append(f'<path fill="{GOLD}" d="{eyebrow}"/><path fill="{FROST}" d="{t1} {t2}"/>')
+    return "".join(parts), max(e_end, t1_end, t2_end), base + 6
+
+
+def banner(sg, runic, jbm, W, H, safe, layout, uid):
+    """Cosmic backdrop, the hero's turning rune ring, text fitted into safe."""
+    x0, y0, x1, y1 = safe
+    block, bw, bh = text_block(sg, runic, jbm, layout, uid)
+    sc = min((x1 - x0) / bw, (y1 - y0) / bh)
+    tx = x0 + ((x1 - x0) - bw * sc) / 2
+    ty = y0 + ((y1 - y0) - bh * sc) / 2
+
+    # Big rune ring bleeding off the right edge, like the hero on the site,
+    # sized to the safe box and faded out behind the text so runes never
+    # cross it.
+    R = min(H * 0.95, (y1 - y0) * 2.2)
+    rcx, rcy = min(W - R * 0.35, x1 + R * 0.1), y0 - (y1 - y0) * 0.15
+    pad = 0.08 * (y1 - y0)
+    hole = (tx - pad, ty - pad, bw * sc + 2 * pad, bh * sc + 2 * pad)
+    k = R / 440
+    ring = [f'<circle cx="{f(rcx)}" cy="{f(rcy)}" r="{f(R)}" fill="none" stroke="{GOLD}" stroke-width="{f(2*k)}" opacity="0.5"/>',
+            f'<circle cx="{f(rcx)}" cy="{f(rcy)}" r="{f(R-26*k)}" fill="none" stroke="{GOLD}" stroke-width="{f(7*k)}" '
+            f'stroke-dasharray="{f(2*k)} {f(17*k)}" stroke-linecap="round" opacity="0.3"/>',
+            f'<circle cx="{f(rcx)}" cy="{f(rcy)}" r="{f(R-116*k)}" fill="none" stroke="{GOLD}" stroke-width="{f(2*k)}" opacity="0.35"/>',
+            f'<circle cx="{f(rcx)}" cy="{f(rcy)}" r="{f(R*0.55)}" fill="none" stroke="{GOLD}" stroke-width="{f(2*k)}" opacity="0.2"/>']
+    size, base_r = 48 * k, R - 104 * k
+    gs = size / runic.upm
+    glyphs = []
+    for i, ch in enumerate(FUTHARK):
+        w = runic.advance(ch) * gs
+        d = runic.glyph_path(ch, rcx - w / 2, rcy - base_r, size)
+        glyphs.append(f'<path transform="rotate({f(360 * i / len(FUTHARK))} {f(rcx)} {f(rcy)})" d="{d}"/>')
+    ring.append(f'<g fill="{GOLD}" opacity="0.8">{"".join(glyphs)}</g>')
+
+    cell = max(48, round(H / 7))
+    return f"""<defs>{cosmos_defs(W, H, uid)}
+    <pattern id="{uid}grid" width="{cell}" height="{cell}" patternUnits="userSpaceOnUse">
+      <path d="M {cell} 0 L 0 0 0 {cell}" fill="none" stroke="{GOLD}" stroke-opacity="0.06" stroke-width="1"/></pattern>
+    <linearGradient id="{uid}fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff"/><stop offset="85%" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <mask id="{uid}mask"><rect width="{W}" height="{H}" fill="url(#{uid}fade)"/></mask>
+    <filter id="{uid}soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="{f(pad * 0.8)}"/></filter>
+    <mask id="{uid}ringmask" maskUnits="userSpaceOnUse" x="0" y="0" width="{W}" height="{H}">
+      <rect width="{W}" height="{H}" fill="#fff"/>
+      <rect x="{f(hole[0])}" y="{f(hole[1])}" width="{f(hole[2])}" height="{f(hole[3])}" rx="{f(pad)}" fill="#000" filter="url(#{uid}soft)"/>
+    </mask>
+    <radialGradient id="{uid}glow" gradientUnits="userSpaceOnUse" cx="{f(rcx)}" cy="{f(rcy)}" r="{f(R*1.1)}">
+      <stop offset="0%" stop-color="#5B8DEF" stop-opacity="0.14"/><stop offset="100%" stop-color="#B07CF6" stop-opacity="0"/></radialGradient>
+    <linearGradient id="{uid}line" x1="0" y1="0" x2="1" y2="0">{stops(BIFROST)}</linearGradient>
+    <linearGradient id="{uid}vline" x1="0" y1="0" x2="0" y2="1">{stops(BIFROST)}</linearGradient>
+  </defs>
+  <rect width="{W}" height="{H}" fill="url(#{uid}cosmos)"/>
+  <rect width="{W}" height="{H}" fill="url(#{uid}grid)" mask="url(#{uid}mask)"/>
+  <rect width="{W}" height="{H}" fill="url(#{uid}glow)"/>
+  <g>{starfield(W, H, int(W * H / 9000), len(uid))}</g>
+  <g mask="url(#{uid}ringmask)">{"".join(ring)}</g>
+  <g transform="translate({f(tx)} {f(ty)}) scale({f(sc)})">{block}</g>"""
+
+
 def site_icons(sg, runic):
     """The site's favicon family, from the same seal.
 
@@ -349,6 +454,13 @@ def main():
         render_png(page, text, w, h, transparent, os.path.join(HERE, "og-image.png"))
         with open(os.path.join(HERE, "og-image.svg"), "w") as fh:
             fh.write(text)
+        # Account banners, exported at their platform size (× scale for sharpness).
+        os.makedirs(os.path.join(OUT, "social"), exist_ok=True)
+        for name, (W, H, safe, layout, scale, _note) in BANNERS.items():
+            body = banner(sg, runic, jbm, W, H, safe, layout, name[:2])
+            text = svg(W, H, body, "Værksted").replace(
+                f'width="{W}" height="{H}"', f'width="{W*scale}" height="{H*scale}"', 1)
+            render_png(page, text, W * scale, H * scale, False, os.path.join(OUT, "social", f"{name}.png"))
         # Smaller avatar sizes some platforms ask for.
         avatar = assets["logo-avatar"][0]
         for px in (500, 400, 200):

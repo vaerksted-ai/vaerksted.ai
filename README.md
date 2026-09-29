@@ -104,6 +104,7 @@ anywhere without the webfonts.
 | `logo-wordmark.svg` / `.png` | "Værksted" in gold with the Bifröst æ, on transparent. Dark backgrounds only. |
 | `logo-lockup.svg` / `.png` | Seal, wordmark and runes side by side, on transparent. Dark backgrounds only. |
 | `social-preview.png` (1280×640) | GitHub repo → Settings → Social preview. Works as a banner elsewhere too. |
+| `social/` | Banners/covers for X, LinkedIn (company and personal), Facebook and YouTube. See `brand/README.md` for which goes where. |
 
 ## Performance
 
