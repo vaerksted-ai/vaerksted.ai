@@ -1,5 +1,6 @@
-"""Render the brand kit into brand/: the medallion logo, the wordmark, a lockup
-and the GitHub social-preview card — as SVG (text outlined, no font
+"""Render the brand kit into brand/ (the medallion logo, the wordmark, a lockup
+and the GitHub social-preview card) and the site's own icons and link-share
+image (favicon.svg/.ico, apple-touch-icon.png, icon-*.png, og-image.png/.svg) — as SVG (text outlined, no font
 dependencies) and PNG.
 
 Usage:
@@ -106,10 +107,11 @@ def starfield(w, h, n, seed):
     return "\n    ".join(out)
 
 
-def medallion(sg, runic, cx, cy, R, uid, disc=True):
+def medallion(sg, runic, cx, cy, R, uid, disc=True, runes=True):
     """The Værksted seal: gold rim, turning rune ring, Bifröst æ.
 
-    R is the outer rim radius. Everything scales from it."""
+    R is the outer rim radius. Everything scales from it. runes=False gives the
+    simplified seal for favicons, where the rune band would only be noise."""
     k = R / 440.0
     g = []
     g.append(f"""
@@ -125,26 +127,29 @@ def medallion(sg, runic, cx, cy, R, uid, disc=True):
     if disc:
         g.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(R+6*k)}" fill="url(#{uid}disc)"/>')
     g.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(R*0.62)}" fill="url(#{uid}halo)"/>')
-    # Rims — same vocabulary as the hero's rune ring
-    g.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(R)}" fill="none" stroke="url(#{uid}gold)" stroke-width="{f(12*k)}"/>')
-    g.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(R-26*k)}" fill="none" stroke="{GOLD}" stroke-width="{f(7*k)}" '
-             f'stroke-dasharray="{f(2*k)} {f(17*k)}" stroke-linecap="round" opacity="0.45"/>')
-    g.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(R-116*k)}" fill="none" stroke="url(#{uid}gold)" stroke-width="{f(3*k)}" opacity="0.8"/>')
+    if not runes:
+        g.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(R)}" fill="none" stroke="url(#{uid}gold)" stroke-width="{f(40*k)}"/>')
+    else:
+        # Rims — same vocabulary as the hero's rune ring
+        g.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(R)}" fill="none" stroke="url(#{uid}gold)" stroke-width="{f(12*k)}"/>')
+        g.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(R-26*k)}" fill="none" stroke="{GOLD}" stroke-width="{f(7*k)}" '
+                 f'stroke-dasharray="{f(2*k)} {f(17*k)}" stroke-linecap="round" opacity="0.45"/>')
+        g.append(f'<circle cx="{f(cx)}" cy="{f(cy)}" r="{f(R-116*k)}" fill="none" stroke="url(#{uid}gold)" stroke-width="{f(3*k)}" opacity="0.8"/>')
 
-    # Elder Futhark around the band, glyphs standing on a circle
-    size = 48 * k
-    base_r = R - 104 * k  # baseline radius (glyph tops point outward)
-    s = size / runic.upm
-    runes = []
-    for i, ch in enumerate(FUTHARK):
-        ang = 360 * i / len(FUTHARK)
-        w = runic.advance(ch) * s
-        d = runic.glyph_path(ch, cx - w / 2, cy - base_r, size)
-        runes.append(f'<path transform="rotate({f(ang)} {f(cx)} {f(cy)})" d="{d}"/>')
-    g.append(f'<g fill="{GOLD}" opacity="0.85">{"".join(runes)}</g>')
+        # Elder Futhark around the band, glyphs standing on a circle
+        size = 48 * k
+        base_r = R - 104 * k  # baseline radius (glyph tops point outward)
+        s = size / runic.upm
+        glyphs = []
+        for i, ch in enumerate(FUTHARK):
+            ang = 360 * i / len(FUTHARK)
+            w = runic.advance(ch) * s
+            d = runic.glyph_path(ch, cx - w / 2, cy - base_r, size)
+            glyphs.append(f'<path transform="rotate({f(ang)} {f(cx)} {f(cy)})" d="{d}"/>')
+        g.append(f'<g fill="{GOLD}" opacity="0.85">{"".join(glyphs)}</g>')
 
     # æ — centred on its ink box, painted with the Bifröst
-    ae_size = 520 * k
+    ae_size = (520 if runes else 700) * k
     xmin, ymin, xmax, ymax = sg.bounds("æ")
     sc = ae_size / sg.upm
     ink_w, ink_h = (xmax - xmin) * sc, (ymax - ymin) * sc
@@ -249,7 +254,52 @@ def build(sg, runic, jbm):
   <path fill="{MIST}" d="{url}"/>"""
     assert x_end < W - 40 and e_end < W - 40, (x_end, e_end)
     assets["social-preview"] = (svg(W, H, body, "Værksted — AI-native products & consulting"), W, H, False)
+
+    # 6. Link-share image (Open Graph / Twitter card, 1200×630) for the site.
+    W, H = 1200, 630
+    R = 200
+    cx, cy = 64 + R, H / 2
+    seal = medallion(sg, runic, cx, cy, R, "o", disc=True)
+    wx = cx + R + 64
+    size = 132
+    eyebrow_y = 170
+    eyebrow, e_end = jbm.run("AI-NATIVE PRODUCTS & CONSULTING", wx + 50, eyebrow_y, 18, tracking=0.14)
+    base = eyebrow_y + 34 + size * 0.70
+    wm, x_end = wordmark(sg, wx - 5, base, size, "o")
+    tag1, t1_end = sg.run("We build AI-native products,", wx, base + 78, 34, tracking=-0.01)
+    tag2, t2_end = sg.run("and help others build them too.", wx, base + 122, 34, tracking=-0.01)
+    url, _ = jbm.run("vaerksted.ai", wx, base + 186, 20, tracking=0.08)
+    body = f"""<defs>{cosmos_defs(W, H, 'o')}{grid.replace('sgrid', 'ogrid').replace('sfade', 'ofade').replace('smask', 'omask')}
+    <linearGradient id="oline" x1="0" y1="0" x2="1" y2="0">{stops(BIFROST)}</linearGradient></defs>
+  <rect width="{W}" height="{H}" fill="url(#ocosmos)"/>
+  <rect width="{W}" height="{H}" fill="url(#ogrid)" mask="url(#omask)"/>
+  <g>{starfield(W, H, 60, 13)}</g>
+  {seal}
+  <rect x="{wx}" y="{eyebrow_y - 7}" width="34" height="2.5" fill="url(#oline)"/>
+  <path fill="{GOLD}" d="{eyebrow}"/>
+  {wm}
+  <path fill="{FROST}" d="{tag1} {tag2}"/>
+  <path fill="{MIST}" d="{url}"/>"""
+    assert max(x_end, e_end, t1_end, t2_end) < W - 40, (x_end, e_end, t1_end, t2_end)
+    assets["og-image"] = (svg(W, H, body, "Værksted — we build AI-native products, and help others build them too."), W, H, False)
     return assets
+
+
+def site_icons(sg, runic):
+    """The site's favicon family, from the same seal.
+
+    Returns {name: (svg, size, transparent)}. Large icons carry the rune band;
+    the small ones use the simplified seal so the æ stays legible."""
+    icons = {}
+    S = 512
+    full = lambda R, uid: (f"<defs>{cosmos_defs(S, S, uid)}</defs>"
+                           f'<rect width="{S}" height="{S}" fill="url(#{uid}cosmos)"/>'
+                           + medallion(sg, runic, S / 2, S / 2, R, uid))
+    icons["icon"] = (svg(S, S, full(220, "i"), "Værksted"), S, False)
+    # Maskable: the seal inside the 80% safe zone so launchers can crop freely.
+    icons["icon-maskable"] = (svg(S, S, full(190, "m"), "Værksted"), S, False)
+    icons["favicon"] = (svg(64, 64, medallion(sg, runic, 32, 32, 29, "f", runes=False), "Værksted"), 64, True)
+    return icons
 
 
 def render_png(page, svg_text, w, h, transparent, out_path):
@@ -267,6 +317,8 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     assets = build(sg, runic, jbm)
     for name, (text, *_rest) in assets.items():
+        if name == "og-image":
+            continue
         with open(os.path.join(OUT, f"{name}.svg"), "w") as fh:
             fh.write(text)
 
@@ -276,13 +328,38 @@ def main():
         browser = p.chromium.launch(executable_path=os.environ.get("CHROMIUM") or None)
         page = browser.new_page()
         for name, (text, w, h, transparent) in assets.items():
+            if name == "og-image":
+                continue
             render_png(page, text, w, h, transparent, os.path.join(OUT, f"{name}.png"))
+        # Site icons go to the repo root, where index.html and the manifest look.
+        icons = site_icons(sg, runic)
+        icon_svg, _, _ = icons["icon"]
+        for px, name in ((512, "icon-512"), (192, "icon-192"), (180, "apple-touch-icon")):
+            scaled = icon_svg.replace('width="512" height="512"', f'width="{px}" height="{px}"', 1)
+            render_png(page, scaled, px, px, False, os.path.join(HERE, f"{name}.png"))
+        render_png(page, icons["icon-maskable"][0], 512, 512, False, os.path.join(HERE, "icon-maskable-512.png"))
+        fav_svg = icons["favicon"][0]
+        with open(os.path.join(HERE, "favicon.svg"), "w") as fh:
+            fh.write(fav_svg)
+        fav_png = os.path.join(OUT, "_favicon-256.png")
+        render_png(page, fav_svg.replace('width="64" height="64"', 'width="256" height="256"', 1),
+                   256, 256, True, fav_png)
+        # The link-share image is served from the root as /og-image.png.
+        text, w, h, transparent = assets["og-image"]
+        render_png(page, text, w, h, transparent, os.path.join(HERE, "og-image.png"))
+        with open(os.path.join(HERE, "og-image.svg"), "w") as fh:
+            fh.write(text)
         # Smaller avatar sizes some platforms ask for.
         avatar = assets["logo-avatar"][0]
         for px in (500, 400, 200):
             scaled = avatar.replace('width="1024" height="1024"', f'width="{px}" height="{px}"', 1)
             render_png(page, scaled, px, px, False, os.path.join(OUT, f"logo-avatar-{px}.png"))
         browser.close()
+
+    from PIL import Image
+    fav = Image.open(fav_png)
+    fav.save(os.path.join(HERE, "favicon.ico"), format="ICO", sizes=[(16, 16), (32, 32), (48, 48), (64, 64)])
+    os.remove(fav_png)
     print("Brand kit rendered to", OUT)
 
 
