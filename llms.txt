@@ -20,6 +20,7 @@ Værksted does two things: we build a family of AI-native products, and we consu
 - Saga: The storyteller. A text editor for long-form writing — where ideas become narratives that hold together. In production.
 - [Sindre](https://sindre.ai): The smith. A product management agent that turns intent into shipped work. In production.
 - Hugin: The raven. A shared inbox that brings every social channel into one place. In development ("in the forge").
+- [Rask](https://syntheticpractitioner.com): The mender. A friendly AI general practitioner for you and your family — chat, call or video, day or night. In development ("in the forge"); waitlist open.
 
 ## The builders
 
