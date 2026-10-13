@@ -31,4 +31,5 @@ Værksted does two things: we build a family of AI-native products, and we consu
 
 - Email: hej@vaerksted.ai
 - Website: https://vaerksted.ai
+- Book a call: https://vaerksted.ai/bookseb
 - Værksted takes on a small number of consulting engagements helping companies become AI-native — strategy, tooling, workflows, or shipping something new into production.
