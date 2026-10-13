@@ -214,7 +214,7 @@
       z-index: 1;
     }
 
-    /* ─── Top bar ───────────────────────────── */
+    /* ─── Top bar ─────────────────────────── */
     header {
       padding: 28px 0;
       display: flex;
@@ -248,7 +248,7 @@
       background: var(--bifrost);
     }
 
-    /* ─── Hero ──────────────────────────────── */
+    /* ─── Hero ───────────────────────────────── */
     .hero { padding: 120px 0 96px; position: relative; overflow-x: clip; }
     .hero .eyebrow { margin-bottom: 36px; }
     .hero > * { position: relative; z-index: 1; }
@@ -369,7 +369,7 @@
       color: var(--mist);
     }
 
-    /* ─── Products ──────────────────────────── */
+    /* ─── Products ─────────────────────────── */
     .products {
       padding: 88px 0 120px;
       border-top: 1px solid var(--line);
@@ -437,7 +437,7 @@
       box-shadow: 0 0 8px var(--accent, var(--signal));
     }
 
-    /* ─── Builders ──────────────────────────── */
+    /* ─── Builders ─────────────────────────── */
     .builders {
       padding: 88px 0;
       border-top: 1px solid var(--line);
@@ -481,7 +481,7 @@
       color: var(--mist);
     }
 
-    /* ─── Availability ──────────────────────── */
+    /* ─── Availability ────────────────────── */
     .availability {
       padding: 88px 0;
       border-top: 1px solid var(--line);
@@ -515,9 +515,10 @@
     footer {
       padding: 64px 0 48px;
       border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 40px 56px;
+      align-items: start;
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -554,11 +555,17 @@
       color: transparent;
     }
 
-    .footer-right {
+    .footer-col {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      align-items: flex-end;
+      align-items: flex-start;
+    }
+    .footer-head {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      color: var(--gold);
+      margin-bottom: 4px;
     }
 
     /* ─── Responsive ────────────────────────── */
@@ -610,12 +617,10 @@
       header .meta { gap: 18px; }
       header .meta span:nth-child(3) { display: none; }
       footer {
-        flex-direction: column;
-        align-items: flex-start;
+        grid-template-columns: 1fr;
         gap: 32px;
         padding: 48px 0 40px;
       }
-      .footer-right { align-items: flex-start; }
     }
 
     /* Small phones — keep the wordmark and runes from overflowing */
@@ -643,7 +648,7 @@
       .footer-mark { font-size: 28px; }
     }
 
-    /* ─── Entrance ──────────────────────────── */
+    /* ─── Entrance ───────────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
@@ -697,7 +702,7 @@
       </p>
     </section>
 
-    <section class="principles">
+    <section class="principles" id="principles">
       <div class="eyebrow">Principles</div>
       <div class="principles-grid">
 
@@ -835,24 +840,35 @@
       <div class="builders-note">Building together since 2020 · Copenhagen</div>
     </section>
 
-    <section class="availability">
+    <section class="availability" id="contact">
       <p>
         <strong>Two ways we work.</strong>
-        We build our own products, and we help organizations become AI-native — from strategy and tooling to shipping real systems into production, with GDPR and good judgment built in from the start. We take on a small number of engagements at a time, so each one gets our full attention. Reach us at <a href="mailto:hej@vaerksted.ai">hej@vaerksted.ai</a>
+        We build our own products, and we help organizations become AI-native — from strategy and tooling to shipping real systems into production, with GDPR and good judgment built in from the start. We take on a small number of engagements at a time, so each one gets our full attention. Reach us at <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2F&body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a> · <a href="https://vaerksted.ai/bookseb">Book a call</a>
       </p>
     </section>
 
+    <!-- footer-start -->
     <footer>
       <div>
         <div class="footer-mark">V<span class="ae">æ</span>rksted</div>
         <div>© MMXXVI · All rights reserved</div>
       </div>
-      <div class="footer-right">
-        <a href="mailto:hej@vaerksted.ai">hej@vaerksted.ai</a>
+      <nav class="footer-col" aria-label="Group products">
+        <div class="footer-head">Group products</div>
+        <a href="https://maskin.io">Maskin</a>
+        <a href="https://skjald.app">Skjald</a>
+        <a href="https://sindre.ai">Sindre</a>
+        <a href="https://syntheticpractitioner.com">Rask</a>
+      </nav>
+      <div class="footer-col">
+        <div class="footer-head">Elsewhere</div>
+        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2F&body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
+        <a href="https://vaerksted.ai/bookseb">Book a call</a>
         <a href="https://github.com/vaerksted-ai" rel="me noopener" target="_blank">GitHub</a>
         <span>vaerksted.ai · vaerksted.org</span>
       </div>
     </footer>
+    <!-- footer-end -->
 
   </div>
 </body>
