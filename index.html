@@ -214,7 +214,7 @@
       z-index: 1;
     }
 
-    /* ─── Top bar ───────────────────────────── */
+    /* ─── Top bar ─────────────────────────── */
     header {
       padding: 28px 0;
       display: flex;
@@ -227,6 +227,7 @@
       color: var(--mist);
     }
     header .mark { color: var(--gold); font-weight: 500; letter-spacing: 0.08em; }
+    header .mark a { color: inherit; text-decoration: none; }
     header .meta { display: flex; gap: 32px; }
 
     /* ─── Eyebrow shared ────────────────────── */
@@ -481,7 +482,7 @@
       color: var(--mist);
     }
 
-    /* ─── Availability ──────────────────────── */
+    /* ─── Availability ────────────────────── */
     .availability {
       padding: 88px 0;
       border-top: 1px solid var(--line);
@@ -517,7 +518,8 @@
       border-top: 1px solid var(--line);
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: flex-start;
+      gap: 40px;
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -554,12 +556,19 @@
       color: transparent;
     }
 
-    .footer-right {
+    .footer-col {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      align-items: flex-end;
+      align-items: flex-start;
     }
+    .footer-label {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      margin-bottom: 4px;
+    }
+    .footer-right { align-items: flex-end; }
 
     /* ─── Responsive ────────────────────────── */
 
@@ -666,14 +675,16 @@
 <body>
   <div class="container">
 
+    <!-- header-start -->
     <header>
-      <div class="mark">Værksted</div>
+      <div class="mark"><a href="/">Værksted</a></div>
       <div class="meta">
         <span>EST. MMXXVI</span>
         <span>København</span>
         <span>vaerksted.ai</span>
       </div>
     </header>
+    <!-- header-end -->
 
     <section class="hero">
       <svg class="rune-ring" viewBox="0 0 520 520" fill="none" aria-hidden="true">
@@ -835,24 +846,35 @@
       <div class="builders-note">Building together since 2020 · Copenhagen</div>
     </section>
 
-    <section class="availability">
+    <section class="availability" id="contact">
       <p>
         <strong>Two ways we work.</strong>
-        We build our own products, and we help organizations become AI-native — from strategy and tooling to shipping real systems into production, with GDPR and good judgment built in from the start. We take on a small number of engagements at a time, so each one gets our full attention. Reach us at <a href="mailto:hej@vaerksted.ai">hej@vaerksted.ai</a>
+        We build our own products, and we help organizations become AI-native — from strategy and tooling to shipping real systems into production, with GDPR and good judgment built in from the start. We take on a small number of engagements at a time, so each one gets our full attention. Reach us at <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a> · <a href="https://vaerksted.ai/bookseb">Book a call</a>
       </p>
     </section>
 
+    <!-- footer-start -->
     <footer>
-      <div>
+      <div class="footer-brand">
         <div class="footer-mark">V<span class="ae">æ</span>rksted</div>
         <div>© MMXXVI · All rights reserved</div>
       </div>
-      <div class="footer-right">
-        <a href="mailto:hej@vaerksted.ai">hej@vaerksted.ai</a>
+      <div class="footer-col">
+        <span class="footer-label">Group products</span>
+        <a href="https://maskin.io">Maskin</a>
+        <a href="https://skjald.app">Skjald</a>
+        <a href="https://sindre.ai">Sindre</a>
+        <a href="https://syntheticpractitioner.com">Rask</a>
+      </div>
+      <div class="footer-col footer-right">
+        <span class="footer-label">Elsewhere</span>
+        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
+        <a href="https://vaerksted.ai/bookseb">Book a call</a>
         <a href="https://github.com/vaerksted-ai" rel="me noopener" target="_blank">GitHub</a>
         <span>vaerksted.ai · vaerksted.org</span>
       </div>
     </footer>
+    <!-- footer-end -->
 
   </div>
 </body>

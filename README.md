@@ -1,7 +1,7 @@
 # Værksted — static site
 
 The full deployable static site for [vaerksted.ai](https://vaerksted.ai).
-Single-page landing, no build step, no JavaScript framework.
+Plain static files, no build step, no JavaScript framework.
 Drop the folder on any static host and you're live.
 
 ## Files
@@ -9,7 +9,7 @@ Drop the folder on any static host and you're live.
 | File | Purpose |
 |---|---|
 | `index.html` | Landing page. Full content. |
-| `404.html` | Error page (same aesthetic). |
+| `404.html` | Error page (same aesthetic, same header and footer as the landing page). |
 | `favicon.svg` | Modern browser favicon (gold-rimmed medallion, the Æ in the Bifröst gradient). |
 | `favicon.ico` | Legacy fallback (16, 32, 48, 64 px embedded). |
 | `apple-touch-icon.png` | iOS home-screen icon (180×180). |
@@ -21,10 +21,31 @@ Drop the folder on any static host and you're live.
 | `brand/` | Brand kit — logo avatar, seal, wordmark, lockup, GitHub social preview (see below). |
 | `manifest.webmanifest` | PWA manifest (theme color, icons). |
 | `robots.txt` | Allow all crawlers, point at sitemap. |
-| `sitemap.xml` | One-URL sitemap. Update when you add pages. |
+| `sitemap.xml` | Lists every live, indexable page, absolute URL with trailing slash. `lastmod` is the date of the last real content change. Add a page's entry in the same PR that ships it. |
+| `llms.txt` | Plain-text summary for language models (llmstxt.org). Update it in the same PR as any new page. |
 | `CNAME` | Custom-domain mapping for GitHub Pages only. Delete elsewhere. |
 
 All assets are referenced by absolute paths (`/favicon.svg` etc.), so the site must be served from the **root** of the domain, not a subpath.
+
+## Shared header and footer
+
+Every page carries the same header and footer. They are plain copies, wrapped in markers so one grep proves they match:
+
+```
+<!-- header-start --> ... <!-- header-end -->
+<!-- footer-start --> ... <!-- footer-end -->
+```
+
+- Edit the block in every page in the same PR. Do not let the copies drift.
+- A link goes in the header or footer only when its target is live. Add a page's link in the same PR that ships the page.
+- Every `mailto:` to hej@vaerksted.ai is prefilled: subject is the page's host and path (`vaerksted.ai%2F`, `vaerksted.ai%2F404`), body starts with `How did you find us? / Hvordan fandt du os?`. The subject is the only part that differs between pages, so ignore that href when diffing the footer.
+- Contact is the block with `id="contact"` on the home page, plus the footer. There is no contact page.
+
+## Files kept off the public site
+
+These files live in the repo but must not be served: `README.md`, `wrangler.jsonc`, `render_brand.py`, `render_stars.py`, `CNAME`, `.gitignore`, `brand/README.md`.
+
+Cloudflare Pages has no ignore file. The exclusion is a build command set in the Pages dashboard (copy the site into `dist`, leave those files out, output directory `dist`). After changing it, check the PR preview: each of those paths should return 404.
 
 ## Deployment
 
@@ -32,7 +53,7 @@ All assets are referenced by absolute paths (`/favicon.svg` etc.), so the site m
 
 1. Push this folder to a new GitHub repo.
 2. Cloudflare Dashboard → Workers & Pages → Create → connect the repo.
-3. Build command: leave empty. Build output: `/`.
+3. Build command and output directory: see "Files kept off the public site" above.
 4. Custom domains tab → add `vaerksted.ai` and `www.vaerksted.ai`.
 5. Cloudflare auto-provisions SSL. Done.
 
@@ -69,7 +90,7 @@ Most hosts (Cloudflare, Netlify, Vercel) handle the redirect with a single rule 
 
 ## Editing
 
-Everything is one HTML file plus assets. To change copy or principles, edit `index.html` directly — the styles are inline, the content is inline, no build step needed.
+Styles and content are inline in each HTML file, no build step needed. To change copy or principles, edit `index.html` directly.
 
 To regenerate the share image or icons after editing the wordmark or tagline,
 edit and re-run `render_brand.py`. Then bump the `?v=` on the `og:image` and
