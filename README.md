@@ -9,7 +9,7 @@ Drop the folder on any static host and you're live.
 | File | Purpose |
 |---|---|
 | `index.html` | Landing page. Full content. |
-| `404.html` | Error page (same aesthetic). |
+| `404.html` | Error page (same aesthetic). Shares the header and footer with every other page. |
 | `favicon.svg` | Modern browser favicon (gold-rimmed medallion, the Æ in the Bifröst gradient). |
 | `favicon.ico` | Legacy fallback (16, 32, 48, 64 px embedded). |
 | `apple-touch-icon.png` | iOS home-screen icon (180×180). |
@@ -21,10 +21,23 @@ Drop the folder on any static host and you're live.
 | `brand/` | Brand kit — logo avatar, seal, wordmark, lockup, GitHub social preview (see below). |
 | `manifest.webmanifest` | PWA manifest (theme color, icons). |
 | `robots.txt` | Allow all crawlers, point at sitemap. |
-| `sitemap.xml` | One-URL sitemap. Update when you add pages. |
-| `CNAME` | Custom-domain mapping for GitHub Pages only. Delete elsewhere. |
+| `sitemap.xml` | Live, indexable pages only (no 404, no redirects), absolute URLs with trailing slash, `lastmod` = date of the last material content change. Add an entry in the same PR as the page. |
+| `llms.txt` | Plain-text summary for AI assistants. List a page only once it is live. |
+| `CNAME` | Custom-domain mapping for GitHub Pages only. Delete elsewhere. Not deployed on Cloudflare. |
+| `wrangler.jsonc`, `render_brand.py`, `render_stars.py`, `README.md` | Repo tooling and docs. Not deployed (see Deployment). |
 
 All assets are referenced by absolute paths (`/favicon.svg` etc.), so the site must be served from the **root** of the domain, not a subpath.
+
+## Shared header and footer
+
+`index.html` and `404.html` carry the same header and footer, each between a pair of comment markers: `header-start` / `header-end` and `footer-start` / `footer-end`. Any new page copies both blocks unchanged. A link goes in only once its target is live. Check that they are identical:
+
+```sh
+block() { sed -n "/<!-- $2-start -->/,/<!-- $2-end -->/p" "$1" | sed -E 's/subject=[^&]*&/subject=PATH\&/'; }
+for m in header footer; do diff <(block index.html $m) <(block 404.html $m) && echo "$m identical"; done
+```
+
+Add any new page to that loop. Both lines must print `identical`. The one allowed difference is the page path in the `mailto:` subject (`vaerksted.ai/` on home, `vaerksted.ai/404` on the 404 page, the page's own path elsewhere); the `sed` masks it.
 
 ## Deployment
 
@@ -32,7 +45,7 @@ All assets are referenced by absolute paths (`/favicon.svg` etc.), so the site m
 
 1. Push this folder to a new GitHub repo.
 2. Cloudflare Dashboard → Workers & Pages → Create → connect the repo.
-3. Build command: leave empty. Build output: `/`.
+3. Build command: `mkdir -p dist && tar --exclude=./dist --exclude=./.git --exclude=./README.md --exclude=./wrangler.jsonc --exclude=./render_brand.py --exclude=./render_stars.py --exclude=./CNAME --exclude=./.gitignore --exclude=./brand/README.md -c . | tar -x -C dist`. Build output: `dist`. This keeps the repo files out of the public site. Pages has no ignore file, so the setting lives in the dashboard and applies to every branch.
 4. Custom domains tab → add `vaerksted.ai` and `www.vaerksted.ai`.
 5. Cloudflare auto-provisions SSL. Done.
 
