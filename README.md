@@ -1,15 +1,15 @@
 # Værksted — static site
 
 The full deployable static site for [vaerksted.ai](https://vaerksted.ai).
-Single-page landing, no build step, no JavaScript framework.
-Drop the folder on any static host and you're live.
+Plain HTML, no JavaScript framework. Pages share one header and one footer,
+copied by hand (see "Shared header and footer" below).
 
 ## Files
 
 | File | Purpose |
 |---|---|
 | `index.html` | Landing page. Full content. |
-| `404.html` | Error page (same aesthetic). |
+| `404.html` | Error page (same aesthetic, same shared header and footer). |
 | `favicon.svg` | Modern browser favicon (gold-rimmed medallion, the Æ in the Bifröst gradient). |
 | `favicon.ico` | Legacy fallback (16, 32, 48, 64 px embedded). |
 | `apple-touch-icon.png` | iOS home-screen icon (180×180). |
@@ -21,20 +21,62 @@ Drop the folder on any static host and you're live.
 | `brand/` | Brand kit — logo avatar, seal, wordmark, lockup, GitHub social preview (see below). |
 | `manifest.webmanifest` | PWA manifest (theme color, icons). |
 | `robots.txt` | Allow all crawlers, point at sitemap. |
-| `sitemap.xml` | One-URL sitemap. Update when you add pages. |
-| `CNAME` | Custom-domain mapping for GitHub Pages only. Delete elsewhere. |
+| `sitemap.xml` | Every live, indexable page, absolute URL with trailing slash. `lastmod` is the date of the last material content change. Add an entry in the same PR as the page. |
+| `llms.txt` | Plain-text summary for AI assistants. List only live pages. Update it in the same PR as the page. |
+| `render_brand.py` / `render_stars.py` | Generators for the brand kit, icons, OG image and starfield. Not deployed. |
+| `wrangler.jsonc` | Cloudflare config. Not deployed. |
+| `CNAME` | Custom-domain mapping for GitHub Pages only. Delete elsewhere. Not deployed. |
 
 All assets are referenced by absolute paths (`/favicon.svg` etc.), so the site must be served from the **root** of the domain, not a subpath.
 
+## Shared header and footer
+
+`index.html` and `404.html` carry the same header and footer. Each block sits
+between marker comments so one command can prove they match:
+
+- `<!-- header-start -->` ... `<!-- header-end -->`
+- `<!-- footer-start -->` ... `<!-- footer-end -->`
+- `/* shared-shell-css-start */` ... `/* shared-shell-css-end */` (the CSS for both)
+
+When you change one, change every page. Only live links go in. A link ships in
+the same PR as the page it points to.
+
+The only part that may differ between pages is the `subject=` value in the
+prefilled `mailto:` link. It carries the page's own path (`vaerksted.ai%2F` on
+home, `vaerksted.ai%2F404` on the 404 page), so we can see which page an
+enquiry came from. Check the blocks match, ignoring that value:
+
+```sh
+for f in index.html 404.html; do
+  sed -n '/header-start/,/header-end/p;/footer-start/,/footer-end/p;/shared-shell-css-start/,/shared-shell-css-end/p' "$f" \
+    | sed -E 's/subject=[^&"]*/subject=PAGE/' > "/tmp/shell-$f"
+done
+diff /tmp/shell-index.html /tmp/shell-404.html && echo identical
+```
+
+Every `mailto:hej@vaerksted.ai` link on the site is prefilled: subject is the
+page path, body starts "How did you find us? / Hvordan fandt du os?" followed by
+two line breaks. `llms.txt` and the JSON-LD keep the plain address.
+
 ## Deployment
 
-### Cloudflare Pages (recommended for `.ai` domains)
+### Cloudflare Pages (recommended for `.ai` domains, and what vaerksted.ai uses)
 
 1. Push this folder to a new GitHub repo.
 2. Cloudflare Dashboard → Workers & Pages → Create → connect the repo.
-3. Build command: leave empty. Build output: `/`.
+3. Build command (keeps repo-only files off the public site; Pages has no ignore file):
+
+   ```sh
+   mkdir -p dist && tar --exclude=./dist --exclude=./.git --exclude=./README.md --exclude=./wrangler.jsonc --exclude=./render_brand.py --exclude=./render_stars.py --exclude=./CNAME -c . | tar -x -C dist
+   ```
+
+   Build output directory: `dist`. The build command is a dashboard setting and
+   applies to every branch, so previews are filtered too.
 4. Custom domains tab → add `vaerksted.ai` and `www.vaerksted.ai`.
 5. Cloudflare auto-provisions SSL. Done.
+
+Pages serves `folder/index.html` at `/folder/` and redirects `/folder` to
+`/folder/`. Unknown paths return `404.html` with a real 404 status.
 
 ### Netlify
 
@@ -69,7 +111,9 @@ Most hosts (Cloudflare, Netlify, Vercel) handle the redirect with a single rule 
 
 ## Editing
 
-Everything is one HTML file plus assets. To change copy or principles, edit `index.html` directly — the styles are inline, the content is inline, no build step needed.
+Content and styles are inline in each HTML file, no build step needed for
+authoring. To change copy or principles, edit `index.html` directly. Keep the
+shared header and footer in step (see above).
 
 To regenerate the share image or icons after editing the wordmark or tagline,
 edit and re-run `render_brand.py`. Then bump the `?v=` on the `og:image` and
@@ -108,7 +152,7 @@ anywhere without the webfonts.
 
 ## Performance
 
-- Single HTML file, ~26KB
+- Each page is a single HTML file
 - Three webfonts loaded from Google Fonts (Space Grotesk, JetBrains Mono, Noto Sans Runic)
 - No JavaScript, no analytics by default
 - Lighthouse should score ≥98 across the board out of the box
