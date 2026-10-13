@@ -15,10 +15,10 @@ Værksted does two things: we build a family of AI-native products, and we consu
 
 ## Products
 
-- [Maskin](https://maskin.io): The machine. An agent-native product development platform — the system that runs the workshop and builds the rest. In production.
-- Skjald: The bard. Notes and knowledge capture — a home for what you and your team learn and need to keep. In production.
-- Saga: The storyteller. A text editor for long-form writing — where ideas become narratives that hold together. In production.
-- [Sindre](https://sindre.ai): The smith. A product management agent that turns intent into shipped work. In production.
+- [Maskin](https://maskin.io): The machine. An agent-native product development platform — the system that runs the workshop and builds the rest. Early-stage, in active development, with a hosted version.
+- Skjald: The bard. A meeting notetaker that records, transcribes and writes up what was decided, who does what and who spoke. Pre-release, for iPhone, iPad and Mac. Not on the App Store yet.
+- Saga: The storyteller. A text editor for long-form writing — where ideas become narratives that hold together.
+- [Sindre](https://sindre.ai): The smith. A product management agent that turns intent into shipped work.
 - Hugin: The raven. A shared inbox that brings every social channel into one place. In development ("in the forge").
 - [Rask](https://syntheticpractitioner.com): The mender. A friendly AI general practitioner for you and your family — chat, call or video, day or night. In development ("in the forge"); waitlist open.
 
