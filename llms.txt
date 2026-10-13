@@ -1,12 +1,12 @@
 # Værksted
 
-> Værksted (Danish for "workshop") is an EU-registered studio that builds AI-native products and helps organizations become AI-native. Privacy by default, GDPR as a baseline, no data brokerage, simplicity, and design measured by how it works. Based in København (Copenhagen), Denmark; established MMXXVI (2026).
+> Værksted (Danish for "workshop") is an EU-registered studio that builds AI-native products and helps organizations become AI-native. Privacy by default, no data brokerage, simplicity, and design measured by how it works. Based in København (Copenhagen), Denmark; established MMXXVI (2026).
 
-Værksted does two things: we build a family of AI-native products, and we consult for organizations that want to become AI-native — strategy, tooling, and shipping real systems into production. Because we're registered in the EU, GDPR and its consumer protections are our baseline, not an afterthought. We make money by selling software, not by selling our users — no ads, no trackers, no data brokerage, no lock-in. We aim to run a reasonable company and build technology that leaves people better off.
+Værksted does two things: we build a family of AI-native products, and we consult for organizations that want to become AI-native — strategy, tooling, and shipping real systems into production. We make money by selling software, not by selling our users — no ads, no trackers, no data brokerage, no lock-in. We aim to run a reasonable company and build technology that leaves people better off.
 
 ## Principles
 
-- **Privacy by default**: Your work is yours. We don't read it, sell it, or train on it. We're EU-registered, so GDPR is the floor we build on — not the ceiling.
+- **Privacy by default**: Your work is yours. We don't sell it.
 - **We sell software, not you**: Our money comes from people buying our products, not from selling access to you. No ads, no trackers, no data brokerage.
 - **Simplicity over surface area**: One craft, done well. If a feature doesn't earn its place, it doesn't ship.
 - **Design is how it works**: Looks matter. Craft matters more — the interface, the latency, the recovery from failure.
@@ -15,12 +15,12 @@ Værksted does two things: we build a family of AI-native products, and we consu
 
 ## Products
 
-- [Maskin](https://maskin.io): The machine. An agent-native product development platform — the system that runs the workshop and builds the rest. Early-stage, in active development, with a hosted version.
+- [Maskin](https://maskin.io): The machine. An open-source (Apache-2.0) workspace where people and AI agents work on the same typed objects: insights, bets, tasks and knowledge. Early-stage, in active development, with a hosted version.
 - Skjald: The bard. A meeting notetaker that records, transcribes and writes up what was decided, who does what and who spoke. Pre-release, for iPhone, iPad and Mac. Not on the App Store yet.
 - Saga: The storyteller. A text editor for long-form writing — where ideas become narratives that hold together.
 - [Sindre](https://sindre.ai): The smith. A product management agent that turns intent into shipped work.
 - Hugin: The raven. A shared inbox that brings every social channel into one place. In development ("in the forge").
-- [Rask](https://syntheticpractitioner.com): The mender. A friendly AI general practitioner for you and your family — chat, call or video, day or night. In development ("in the forge"); waitlist open.
+- [Rask](https://syntheticpractitioner.com): The mender. In development ("in the forge"); waitlist open.
 
 ## The builders
 
