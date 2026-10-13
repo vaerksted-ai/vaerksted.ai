@@ -9,7 +9,7 @@ Drop the folder on any static host and you're live.
 | File | Purpose |
 |---|---|
 | `index.html` | Landing page. Full content. |
-| `404.html` | Error page (same aesthetic). |
+| `404.html` | Error page (same aesthetic). Carries the same shared header and footer as the landing page. |
 | `favicon.svg` | Modern browser favicon (gold-rimmed medallion, the Æ in the Bifröst gradient). |
 | `favicon.ico` | Legacy fallback (16, 32, 48, 64 px embedded). |
 | `apple-touch-icon.png` | iOS home-screen icon (180×180). |
@@ -21,7 +21,8 @@ Drop the folder on any static host and you're live.
 | `brand/` | Brand kit — logo avatar, seal, wordmark, lockup, GitHub social preview (see below). |
 | `manifest.webmanifest` | PWA manifest (theme color, icons). |
 | `robots.txt` | Allow all crawlers, point at sitemap. |
-| `sitemap.xml` | One-URL sitemap. Update when you add pages. |
+| `sitemap.xml` | One-URL sitemap: live, indexable pages only. `lastmod` is the date of the last real content change. Add a page's entry in the same PR as the page. |
+| `llms.txt` | Plain-text summary for language models ([llmstxt.org](https://llmstxt.org)). List only live pages; update it in the same PR as the page. |
 | `CNAME` | Custom-domain mapping for GitHub Pages only. Delete elsewhere. |
 
 All assets are referenced by absolute paths (`/favicon.svg` etc.), so the site must be served from the **root** of the domain, not a subpath.
@@ -32,7 +33,7 @@ All assets are referenced by absolute paths (`/favicon.svg` etc.), so the site m
 
 1. Push this folder to a new GitHub repo.
 2. Cloudflare Dashboard → Workers & Pages → Create → connect the repo.
-3. Build command: leave empty. Build output: `/`.
+3. Build command: `mkdir -p dist && tar --exclude=./dist --exclude=./.git --exclude=./README.md --exclude=./wrangler.jsonc --exclude=./render_brand.py --exclude=./render_stars.py --exclude=./CNAME -c . | tar -x -C dist`. Build output: `dist`. The command keeps the README, config and render scripts from being served; Pages has no ignore file, so this is the only way to do it. It is a dashboard setting and applies to every branch.
 4. Custom domains tab → add `vaerksted.ai` and `www.vaerksted.ai`.
 5. Cloudflare auto-provisions SSL. Done.
 
@@ -75,6 +76,12 @@ To regenerate the share image or icons after editing the wordmark or tagline,
 edit and re-run `render_brand.py`. Then bump the `?v=` on the `og:image` and
 `twitter:image` URLs in `index.html` so LinkedIn, Slack, Facebook and X fetch
 the new image instead of their cached copy.
+
+### Shared header and footer
+
+The header and footer are the same on every page, so one grep proves it. Each is wrapped in comment markers: `header-start` / `header-end` and `footer-start` / `footer-end`. Their CSS sits between `shared-shell-css-start` and `shared-shell-css-end`. Change all pages in the same PR. The one allowed difference is the `subject` in the footer's `mailto:` link, which carries the page's own path (`vaerksted.ai%2F` on home, `vaerksted.ai%2F404` on the 404 page).
+
+A link goes in the header or footer only when its target is live. Every `mailto:hej@vaerksted.ai` link on the site is prefilled with that subject and the body "How did you find us? / Hvordan fandt du os?". Details: the vaerksted.ai IA spec v1 in Maskin.
 
 ### Theme — Asgard / Viking future-tech
 

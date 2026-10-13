@@ -42,12 +42,19 @@
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-size: 14px;
       line-height: 1.6;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 40px;
       -webkit-font-smoothing: antialiased;
     }
+    .container {
+      max-width: 1200px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    main { flex: 1; display: flex; align-items: center; padding: 40px 0; }
     body::before {
       content: '';
       position: fixed;
@@ -104,7 +111,7 @@
       -webkit-text-fill-color: transparent;
       color: transparent;
     }
-    p {
+    .wrap p {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(22px, 3vw, 34px);
       line-height: 1.25;
@@ -112,7 +119,7 @@
       margin-bottom: 40px;
       color: var(--frost);
     }
-    a {
+    .wrap a {
       display: inline-block;
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
@@ -124,22 +131,160 @@
       padding-bottom: 4px;
       transition: all 0.2s ease;
     }
-    a:hover { color: var(--gold); border-color: var(--gold); }
-    a::before { content: '← '; }
+    .wrap a:hover { color: var(--gold); border-color: var(--gold); }
+    .wrap a::before { content: '← '; }
+    /* shared-shell-css-start: header and footer, identical on every page */
+    header {
+      padding: 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+    header a { text-decoration: none; transition: all 0.2s ease; }
+    header .mark { color: var(--gold); font-weight: 500; letter-spacing: 0.08em; }
+    header .meta { display: flex; gap: 32px; align-items: center; }
+    header .meta nav a {
+      color: var(--frost);
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 2px;
+    }
+    header .meta nav a:hover { color: var(--gold); border-color: var(--gold); }
+
+    footer {
+      padding: 64px 0 48px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+    footer a {
+      color: var(--frost);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 2px;
+      transition: all 0.2s ease;
+    }
+    footer a:hover { color: var(--gold); border-color: var(--gold); }
+
+    .footer-mark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 34px;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 14px;
+      background: var(--gold-metal);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .footer-mark .ae {
+      background: var(--bifrost);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .footer-cols { display: flex; gap: 64px; align-items: flex-start; }
+    .footer-col { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+    .footer-label { color: var(--gold); letter-spacing: 0.24em; font-size: 10px; margin-bottom: 4px; }
+
+    @media (max-width: 820px) {
+      header .meta { gap: 18px; }
+      header .meta span:nth-child(3) { display: none; }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        padding: 48px 0 40px;
+      }
+      .footer-cols { flex-direction: column; gap: 28px; }
+    }
+
     @media (max-width: 480px) {
-      body { padding: 28px 20px; }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 22px 0;
+      }
+      header .meta { gap: 14px; flex-wrap: wrap; }
+      .footer-mark { font-size: 28px; }
+    }
+    /* shared-shell-css-end */
+
+    @media (max-width: 820px) {
+      .container { padding: 0 24px; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 18px; }
       .eyebrow { margin-bottom: 24px; }
       h1 { margin-bottom: 24px; }
-      p { margin-bottom: 32px; }
+      .wrap p { margin-bottom: 32px; }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="eyebrow">Error · 404</div>
-    <h1>4<span class="accent">0</span>4</h1>
-    <p>Not in the workshop's inventory.</p>
-    <a href="/">Back to Værksted</a>
+  <div class="container">
+
+    <!-- header-start -->
+    <header>
+      <a class="mark" href="/">Værksted</a>
+      <div class="meta">
+        <span>EST. MMXXVI</span>
+        <span>København</span>
+        <span>vaerksted.ai</span>
+        <nav aria-label="Main"><a href="/#contact">Contact</a></nav>
+      </div>
+    </header>
+    <!-- header-end -->
+
+    <main>
+      <div class="wrap">
+        <div class="eyebrow">Error · 404</div>
+        <h1>4<span class="accent">0</span>4</h1>
+        <p>Not in the workshop's inventory.</p>
+        <a href="/">Back to Værksted</a>
+      </div>
+    </main>
+
+    <!-- footer-start -->
+    <footer>
+      <div>
+        <div class="footer-mark">V<span class="ae">æ</span>rksted</div>
+        <div>© MMXXVI · All rights reserved</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <span class="footer-label">Group products</span>
+          <a href="https://maskin.io">Maskin</a>
+          <a href="https://skjald.app">Skjald</a>
+          <a href="https://sindre.ai">Sindre</a>
+          <a href="https://syntheticpractitioner.com">Rask</a>
+        </div>
+        <div class="footer-col">
+          <span class="footer-label">Elsewhere</span>
+          <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2F404&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
+          <a href="https://vaerksted.ai/bookseb">Book a call</a>
+          <a href="https://github.com/vaerksted-ai" rel="me noopener" target="_blank">GitHub</a>
+          <span>vaerksted.ai · vaerksted.org</span>
+        </div>
+      </div>
+    </footer>
+    <!-- footer-end -->
+
   </div>
 </body>
 </html>
