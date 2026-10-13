@@ -44,6 +44,7 @@
       line-height: 1.6;
       min-height: 100vh;
       display: grid;
+      grid-template-rows: 1fr auto;
       place-items: center;
       padding: 40px;
       -webkit-font-smoothing: antialiased;
@@ -112,7 +113,7 @@
       margin-bottom: 40px;
       color: var(--frost);
     }
-    a {
+    .wrap a {
       display: inline-block;
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
@@ -124,8 +125,70 @@
       padding-bottom: 4px;
       transition: all 0.2s ease;
     }
-    a:hover { color: var(--gold); border-color: var(--gold); }
-    a::before { content: '← '; }
+    .wrap a:hover { color: var(--gold); border-color: var(--gold); }
+    .wrap a::before { content: '← '; }
+    footer {
+      width: 100%;
+      max-width: 1200px;
+      position: relative;
+      z-index: 1;
+      padding: 64px 0 48px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 40px 56px;
+      align-items: start;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+    footer a {
+      color: var(--frost);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 2px;
+      transition: all 0.2s ease;
+    }
+    footer a:hover { color: var(--gold); border-color: var(--gold); }
+
+    .footer-mark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 34px;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 14px;
+      background: var(--gold-metal);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .footer-mark .ae {
+      background: var(--bifrost);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .footer-head {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    @media (max-width: 820px) {
+      footer { grid-template-columns: 1fr; gap: 32px; padding: 48px 0 40px; }
+    }
     @media (max-width: 480px) {
       body { padding: 28px 20px; }
       .eyebrow { margin-bottom: 24px; }
@@ -141,5 +204,27 @@
     <p>Not in the workshop's inventory.</p>
     <a href="/">Back to Værksted</a>
   </div>
+  <!-- footer-start -->
+  <footer>
+    <div>
+      <div class="footer-mark">V<span class="ae">æ</span>rksted</div>
+      <div>© MMXXVI · All rights reserved</div>
+    </div>
+    <nav class="footer-col" aria-label="Group products">
+      <div class="footer-head">Group products</div>
+      <a href="https://maskin.io">Maskin</a>
+      <a href="https://skjald.app">Skjald</a>
+      <a href="https://sindre.ai">Sindre</a>
+      <a href="https://syntheticpractitioner.com">Rask</a>
+    </nav>
+    <div class="footer-col">
+      <div class="footer-head">Elsewhere</div>
+      <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2F404&body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
+      <a href="https://vaerksted.ai/bookseb">Book a call</a>
+      <a href="https://github.com/vaerksted-ai" rel="me noopener" target="_blank">GitHub</a>
+      <span>vaerksted.ai · vaerksted.org</span>
+    </div>
+  </footer>
+  <!-- footer-end -->
 </body>
 </html>
