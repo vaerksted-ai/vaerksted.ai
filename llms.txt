@@ -2,7 +2,7 @@
 
 > Værksted (Danish for "workshop") is an EU-registered studio that builds AI-native products and helps organizations become AI-native. Privacy by default, no data brokerage, simplicity, and design measured by how it works. Based in København (Copenhagen), Denmark; established MMXXVI (2026).
 
-Værksted does two things: we build a family of AI-native products, and we consult for organizations that want to become AI-native — strategy, tooling, and shipping real systems into production. We make money by selling software, not by selling our users — no ads, no trackers, no data brokerage, no lock-in. We aim to run a reasonable company and build technology that leaves people better off.
+Værksted does two things: we build a family of AI-native products, and we help organizations become AI-native through advice and plans. We make money by selling software, not by selling our users — no ads, no trackers, no data brokerage, no lock-in. We aim to run a reasonable company and build technology that leaves people better off.
 
 ## Principles
 
@@ -32,4 +32,4 @@ Værksted does two things: we build a family of AI-native products, and we consu
 - Email: hej@vaerksted.ai
 - Website: https://vaerksted.ai
 - Book a call: https://vaerksted.ai/bookseb
-- Værksted takes on a small number of consulting engagements helping companies become AI-native — strategy, tooling, workflows, or shipping something new into production.
+- Værksted takes on a small number of engagements helping organizations become AI-native through advice and plans.
