@@ -27,6 +27,10 @@ Værksted does two things: we build a family of AI-native products, and we consu
 - [Sebastian Krumhausen](https://skrumhausen.com): CPO, founder, investor. His master's thesis at LEGO Future Lab became LEGO Life (launched 2017, 8M+ active users). Product leadership at momondo, KAYAK, TELUS, and Trackunit. Trained 250+ product managers in AI, lean, and agile.
 - Magnus Nøddegaard Hansen: Engineer and builder since 17. Designed and built Maskin's MCP-native architecture from scratch. Thinks in systems, ships in weeks.
 
+## Advice
+
+- [AI advisory for product and technology leaders](https://vaerksted.ai/advisory/): Senior AI advisory led by Sebastian Krumhausen, sold as two fixed-scope offers (ex VAT): planning at 105,000 kr and a first use case at 52,500 kr. Advice and plans only. Includes funding notes for Danish SMEs (SMV:Digital).
+
 ## Contact
 
 - Email: hej@vaerksted.ai
