@@ -30,6 +30,13 @@ Værksted does two things: we build a family of AI-native products, and we advis
 ## Advice
 
 - [AI advisory for product and technology leaders](https://vaerksted.ai/advisory/): Senior AI advisory led by Sebastian Krumhausen, sold as two fixed-scope offers (ex VAT): planning at 105,000 kr and a first use case at 52,500 kr. Advice and plans only. Includes funding notes for Danish SMEs (SMV:Digital).
+- [AI training for product teams](https://vaerksted.ai/training/): AI training and workshops for product teams from 19,500 kr per group, led by Sebastian, who has trained 250+ product managers in AI, lean and agile.
+- [AI-rådgivning for virksomheder (Danish)](https://vaerksted.ai/da/ai-raadgivning/): AI-rådgivning for ledelsen: kortlæg, hvor AI betaler sig, og få en plan med ejere og mål. Planlægning til 105.000 kr. Book et opkald.
+- [AI-kursus og workshop for virksomheder (Danish)](https://vaerksted.ai/da/ai-kursus/): AI-kursus og workshop for virksomheder: ledersession 19.500 kr, teamworkshop 38.000 kr, forløb 80.000 kr pr. gruppe ekskl. moms. Book et opkald.
+
+## In Danish
+
+- [Værksted forside (Danish)](https://vaerksted.ai/da/): Værksted bygger AI-native produkter og rådgiver organisationer om at blive AI-native. Rådgivning og planer, ikke levering.
 
 ## Contact
 

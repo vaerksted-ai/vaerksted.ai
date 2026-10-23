@@ -33,11 +33,12 @@ All assets are referenced by absolute paths (`/favicon.svg` etc.), so the site m
 `index.html` and `404.html` carry the same header and footer, each between a pair of comment markers: `header-start` / `header-end` and `footer-start` / `footer-end`. Any new page copies both blocks unchanged. A link goes in only once its target is live. Check that they are identical:
 
 ```sh
-block() { sed -n "/<!-- $2-start -->/,/<!-- $2-end -->/p" "$1" | sed -E 's/subject=[^&]*&/subject=PATH\&/'; }
-for m in header footer; do diff <(block index.html $m) <(block 404.html $m) && echo "$m identical"; done
+block() { sed -n "/<!-- $2-start -->/,/<!-- $2-end -->/p" "$1" | sed -E 's/subject=[^&]*&/subject=PATH\&/; s/href="[^"]*" hreflang=/href="TWIN" hreflang=/g'; }
+for f in 404.html advisory/index.html training/index.html; do for m in header footer; do diff <(block index.html $m) <(block $f $m) && echo "$f $m identical"; done; done
+for f in da/ai-raadgivning/index.html da/ai-kursus/index.html; do for m in header footer; do diff <(block da/index.html $m) <(block $f $m) && echo "$f $m identical"; done; done
 ```
 
-Add any new page to that loop. Both lines must print `identical`. The one allowed difference is the page path in the `mailto:` subject (`vaerksted.ai/` on home, `vaerksted.ai/404` on the 404 page, the page's own path elsewhere); the `sed` masks it.
+Add any new page to that loop. Every line must print `identical`. English pages are compared with the English home, Danish pages with the Danish home (`da/index.html`). The allowed differences are the page path in the `mailto:` subject (`vaerksted.ai/` on home, `vaerksted.ai/404` on the 404 page, the page's own path elsewhere) and the target of the EN | DA switch (the page's twin); the `sed` masks both.
 
 ## Deployment
 

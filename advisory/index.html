@@ -12,6 +12,9 @@
   <meta name="theme-color" content="#07080D">
   <meta name="format-detection" content="telephone=no">
   <link rel="canonical" href="https://vaerksted.ai/advisory/">
+  <link rel="alternate" hreflang="en" href="https://vaerksted.ai/advisory/">
+  <link rel="alternate" hreflang="da" href="https://vaerksted.ai/da/ai-raadgivning/">
+  <link rel="alternate" hreflang="x-default" href="https://vaerksted.ai/advisory/">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -37,6 +40,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Værksted wordmark and gold rune ring beside the text: AI advisory for product and technology leaders">
   <meta property="og:locale" content="en_DK">
+  <meta property="og:locale:alternate" content="da_DK">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +284,12 @@
     }
     header .mark { color: var(--gold); font-weight: 500; letter-spacing: 0.08em; }
     header .mark a { color: inherit; text-decoration: none; }
-    header .meta { display: flex; gap: 32px; }
+    header .meta { display: flex; gap: 32px; align-items: center; }
+    header nav { display: flex; gap: 28px; flex-wrap: wrap; }
+    header nav a, header .lang a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+    header nav a:hover, header .lang a:hover { color: var(--gold); }
+    header .lang { display: flex; gap: 10px; }
+    header .lang [aria-current] { color: var(--gold); }
 
     /* ─── Eyebrow shared ────────────────────── */
     .eyebrow {
@@ -664,8 +673,9 @@
       .builders-grid { grid-template-columns: 1fr; gap: 40px; }
       .builder-name { font-size: 21px; }
       .availability { padding: 56px 0; }
-      header .meta { gap: 18px; }
-      header .meta span:nth-child(3) { display: none; }
+      header { flex-direction: column; align-items: flex-start; gap: 14px; }
+      header .meta { gap: 18px; flex-wrap: wrap; }
+      header nav { gap: 18px; }
       footer {
         flex-direction: column;
         align-items: flex-start;
@@ -685,6 +695,7 @@
         padding: 22px 0;
       }
       header .meta { gap: 14px; flex-wrap: wrap; }
+      header nav { gap: 14px; }
       .eyebrow { margin-bottom: 28px; }
       .hero { padding: 44px 0 40px; }
       .hero .eyebrow { margin-bottom: 24px; }
@@ -755,9 +766,13 @@
     <header>
       <div class="mark"><a href="/">Værksted</a></div>
       <div class="meta">
-        <span>EST. MMXXVI</span>
-        <span>København</span>
-        <span>vaerksted.ai</span>
+        <nav aria-label="Main menu">
+          <a href="/advisory/">Advisory</a>
+          <a href="/training/">Training</a>
+          <a href="/training/#workshops">Workshops</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <div class="lang" role="group" aria-label="Language"><span aria-current="true">EN</span><a href="/da/ai-raadgivning/" hreflang="da" lang="da">DA</a></div>
       </div>
     </header>
     <!-- header-end -->
@@ -879,7 +894,7 @@
       <p>Værksted also builds Maskin and Skjald.</p>
 
       <h2 id="training">Training and workshops</h2>
-      <p>If your question is less "where should we start" and more "how do my people learn to work with AI", the answer is usually training or a workshop, not advisory. Værksted offers training and workshops for product teams. They can happen before, during or after an advisory engagement.</p>
+      <p>If your question is less "where should we start" and more "how do my people learn to work with AI", the answer is usually training or a workshop, not advisory. Værksted offers <a href="/training/">training and workshops for product teams</a>. They can happen before, during or after an advisory engagement.</p>
 
       <h2 id="faq">FAQ</h2>
       <h3>What is AI advisory?</h3>
@@ -911,7 +926,15 @@
       <div class="footer-brand">
         <div class="footer-mark">V<span class="ae">æ</span>rksted</div>
         <div>© MMXXVI · All rights reserved</div>
+        <div>Mesh Firm ApS, CVR 41245271, Vesterbrogade 26, 1620 København V</div>
       </div>
+      <nav class="footer-col" aria-label="Work with us">
+        <div class="footer-label">Work with us</div>
+        <a href="/advisory/">Advisory</a>
+        <a href="/training/">Training</a>
+        <a href="/training/#workshops">Workshops</a>
+        <a href="/#contact">Contact</a>
+      </nav>
       <nav class="footer-col" aria-label="Products">
         <div class="footer-label">Products</div>
         <a href="https://maskin.io">Maskin</a>
@@ -924,6 +947,7 @@
         <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fadvisory%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
         <a href="https://vaerksted.ai/bookseb">Book a call</a>
         <a href="https://github.com/vaerksted-ai" rel="me noopener" target="_blank">GitHub</a>
+        <span><span aria-current="true">EN</span> | <a href="/da/ai-raadgivning/" hreflang="da" lang="da">DA</a></span>
         <span>vaerksted.ai · vaerksted.org</span>
       </div>
     </footer>
