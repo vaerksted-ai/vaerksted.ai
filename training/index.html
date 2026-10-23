@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary -->
+  <title>AI training for product teams | Værksted</title>
+  <meta name="description" content="AI training and workshops for product teams from 19,500 kr per group, led by Sebastian, who has trained 250+ product managers in AI, lean and agile.">
+  <meta name="author" content="Værksted">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#07080D">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://vaerksted.ai/training/">
+  <link rel="alternate" hreflang="en" href="https://vaerksted.ai/training/">
+  <link rel="alternate" hreflang="da" href="https://vaerksted.ai/da/ai-kursus/">
+  <link rel="alternate" hreflang="x-default" href="https://vaerksted.ai/training/">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="mask-icon" href="/favicon.svg" color="#E8C879">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <!-- LLM-friendly summary (llmstxt.org) -->
+  <link rel="alternate" type="text/markdown" title="llms.txt" href="/llms.txt">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Værksted">
+  <meta property="og:title" content="AI training for product teams | Værksted">
+  <meta property="og:description" content="AI training and workshops for product teams from 19,500 kr per group, led by Sebastian, who has trained 250+ product managers in AI, lean and agile.">
+  <meta property="og:url" content="https://vaerksted.ai/training/">
+  <meta property="og:image" content="https://vaerksted.ai/og-image.png?v=2">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Værksted wordmark in a gold rune ring">
+  <meta property="og:locale" content="en_DK">
+  <meta property="og:locale:alternate" content="da_DK">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI training for product teams | Værksted">
+  <meta name="twitter:description" content="AI training and workshops for product teams from 19,500 kr per group, led by Sebastian, who has trained 250+ product managers in AI, lean and agile.">
+  <meta name="twitter:image" content="https://vaerksted.ai/og-image.png?v=2">
+  <meta name="twitter:image:alt" content="Værksted wordmark in a gold rune ring">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Runic&display=swap" rel="stylesheet">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://vaerksted.ai/training/#service",
+        "name": "AI training for product teams",
+        "serviceType": "AI training and workshops for product teams",
+        "description": "Leader sessions, full-day team workshops and multi-week programmes that teach product teams to use AI in discovery, specs, roadmaps and prioritisation, built on the team's own work. Ends with a playbook, a prompt and skill library and a 30-day follow-up.",
+        "url": "https://vaerksted.ai/training/",
+        "inLanguage": "en",
+        "provider": {
+          "@id": "https://vaerksted.ai/#organization"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Formats",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "19500",
+                "priceCurrency": "DKK",
+                "valueAddedTaxIncluded": false
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Leader session, half day"
+              }
+            },
+            {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "38000",
+                "priceCurrency": "DKK",
+                "valueAddedTaxIncluded": false
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Team workshop, full day"
+              }
+            },
+            {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": "80000",
+                "priceCurrency": "DKK",
+                "valueAddedTaxIncluded": false
+              },
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Programme, 4 half-day team sessions over about 6 weeks"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "en",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How to learn about AI as a product manager?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Learn it on your own work. Pick a real task, such as turning interview notes into a problem statement or a draft spec into edge-case tests, do it with AI, and compare the result with how you did it before. A course helps most when it runs on your material and ends with habits your team keeps. That is how our workshops are built."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can AI do product management?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It can do parts of it well: summarising research, drafting specs, spotting gaps in a plan. It cannot own the decision about what to build and why. Good training teaches a team which steps to hand over, which to check and which to keep. We draw that line with your team, using your own discovery, roadmap and prioritisation work."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does AI training for product teams cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Prices are per group and exclude VAT: a half-day leader session for up to 10 is 19,500 kr, a full-day team workshop for up to 20 is 38,000 kr, and a four-session programme over about six weeks for up to 20 is 80,000 kr. For a team of 20, the workshop works out at 1,900 kr per person."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does AI training for a product team take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A leader session is half a day, a team workshop is one full day, and a programme is four half-day team sessions over about six weeks. Each one ends with a 30-day follow-up, so the real length of the engagement is a month longer than the training itself."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does AI training for product teams include?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hands-on work on your team's own material across discovery, specs, roadmap and prioritisation. You leave with a written playbook, a prompt and skill library built from your work, and a 30-day follow-up. It does not include a certificate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the best AI courses for product managers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The best AI course is the kind after which your team works differently. Check four things: it runs on your own discovery notes, roadmap and specs; it shows you where AI gets it wrong; it ends with a playbook your team keeps; and someone looks at what stuck after a month. A certificate tells you far less than those four."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Værksted",
+            "item": "https://vaerksted.ai/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "AI training for product teams",
+            "item": "https://vaerksted.ai/training/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      /* The void between realms */
+      --void: #07080D;
+      --panel: #0E1018;
+      --frost: #EDEFF3;
+      --mist: #8B939F;
+      --line: rgba(232, 200, 121, 0.14);      /* etched gold hairline */
+      --line-strong: rgba(232, 200, 121, 0.30);
+
+      /* Asgardian gold */
+      --gold: #E8C879;
+      --gold-deep: #B8893A;
+      --gold-metal: linear-gradient(180deg,
+        #F7E7B0 0%, #E6C56F 38%, #B8893A 52%, #EBD083 72%, #F7E7B0 100%);
+
+      /* Bifröst — the rainbow bridge Heimdal guards.
+         One hue per app; blue is the house colour (Maskin). */
+      --c-red:    #F26D6D;
+      --c-amber:  #F2A33C;
+      --c-green:  #4FD08A;
+      --c-cyan:   #38C5E0;
+      --c-blue:   #5B8DEF;
+      --c-violet: #B07CF6;
+
+      --bifrost: linear-gradient(100deg,
+        var(--c-red), var(--c-amber), var(--c-green),
+        var(--c-cyan), var(--c-blue), var(--c-violet));
+
+      --signal: var(--c-blue);
+      --signal-soft: rgba(91, 141, 239, 0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      /* Asgard adrift in the cosmos */
+      background:
+        radial-gradient(ellipse 120% 80% at 50% -20%, #1A1733 0%, #0C0B1A 38%, var(--void) 72%);
+      background-attachment: fixed;
+      color: var(--frost);
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Starfield + faint etched grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        url('/stars.svg') top center / cover no-repeat,
+        linear-gradient(to right, var(--line) 1px, transparent 1px) top center / 72px 72px,
+        linear-gradient(to bottom, var(--line) 1px, transparent 1px) top center / 72px 72px;
+      -webkit-mask-image: radial-gradient(ellipse 100% 70% at 50% 0%, #000 0%, transparent 80%);
+      mask-image: radial-gradient(ellipse 100% 70% at 50% 0%, #000 0%, transparent 80%);
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Aurora over Asgard — gold horizon meets the Bifröst spectrum */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 32% at 50% -6%, rgba(232, 200, 121, 0.14) 0%, transparent 70%),
+        radial-gradient(circle at 14% -8%, rgba(176, 124, 246, 0.10) 0%, transparent 42%),
+        radial-gradient(circle at 40% -6%, rgba(91, 141, 239, 0.10) 0%, transparent 42%),
+        radial-gradient(circle at 66% -6%, rgba(79, 208, 138, 0.07) 0%, transparent 42%),
+        radial-gradient(circle at 90% -8%, rgba(242, 163, 60, 0.08) 0%, transparent 42%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── Top bar ───────────────────────────── */
+    header {
+      padding: 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+    header .mark { color: var(--gold); font-weight: 500; letter-spacing: 0.08em; }
+    header .mark a { color: inherit; text-decoration: none; }
+    header .meta { display: flex; gap: 32px; align-items: center; }
+    header nav { display: flex; gap: 28px; flex-wrap: wrap; }
+    header nav a, header .lang a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+    header nav a:hover, header .lang a:hover { color: var(--gold); }
+    header .lang { display: flex; gap: 10px; }
+    header .lang [aria-current] { color: var(--gold); }
+
+    /* ─── Eyebrow shared ────────────────────── */
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 56px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 2px;
+      border-radius: 1px;
+      background: var(--bifrost);
+    }
+
+    /* ─── Hero ──────────────────────────────── */
+    .hero { padding: 120px 0 96px; position: relative; overflow-x: clip; }
+    .hero .eyebrow { margin-bottom: 36px; }
+    .hero > * { position: relative; z-index: 1; }
+
+    /* Bifröst observatory — a slowly turning rune ring */
+    .rune-ring {
+      position: absolute;
+      top: -150px;
+      right: -160px;
+      width: 560px;
+      height: 560px;
+      color: var(--gold);
+      opacity: 0.5;
+      z-index: 0;
+      pointer-events: none;
+      animation: spin 200s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .wordmark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(72px, 13vw, 196px);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      font-weight: 600;
+      margin-bottom: 20px;
+      /* Polished Asgardian gold */
+      background: var(--gold-metal);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .wordmark .ae {
+      background: var(--bifrost);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    /* Værksted, carved in Elder Futhark */
+    .runes {
+      font-family: 'Noto Sans Runic', serif;
+      font-size: clamp(18px, 2.2vw, 28px);
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      opacity: 0.75;
+      margin-bottom: 44px;
+      padding-left: 0.15em;
+    }
+
+    .tagline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(26px, 3.4vw, 44px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      color: var(--frost);
+      max-width: 800px;
+      margin-bottom: 56px;
+    }
+
+    .blurb {
+      max-width: 600px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--mist);
+    }
+    .blurb em {
+      color: var(--frost);
+      font-style: normal;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 1px;
+    }
+
+    /* ─── Principles ────────────────────────── */
+    .principles {
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 56px 80px;
+      margin-top: 8px;
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      align-items: baseline;
+    }
+
+    .principle-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 22px;
+      color: var(--accent, var(--signal));
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .principle-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .principle-desc {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--mist);
+    }
+
+    /* ─── Products ──────────────────────────── */
+    .products {
+      padding: 88px 0 120px;
+      border-top: 1px solid var(--line);
+    }
+
+    .product {
+      display: grid;
+      grid-template-columns: 80px 1.1fr 2fr 140px;
+      gap: 32px;
+      padding: 56px 0;
+      border-top: 1px solid var(--line);
+      align-items: baseline;
+      transition: background 0.4s ease;
+    }
+    .product:last-child { border-bottom: 1px solid var(--line); }
+    .product:hover { background: color-mix(in srgb, var(--accent, var(--signal)) 8%, transparent); }
+
+    .product-num {
+      font-size: 11px;
+      color: var(--accent, var(--mist));
+      letter-spacing: 0.15em;
+    }
+
+    .product-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(40px, 4.6vw, 62px);
+      line-height: 1;
+      letter-spacing: -0.035em;
+      font-weight: 600;
+    }
+    .product-name a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .product-name a:hover { color: var(--accent, var(--signal)); }
+
+    .product-desc { font-size: 14px; line-height: 1.65; color: var(--frost); }
+    .product-desc .meaning {
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--accent, var(--signal));
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .product-status {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: right;
+      color: var(--mist);
+    }
+    .product-status.live { color: var(--accent, var(--signal)); }
+    .product-status .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent, var(--signal));
+      margin-right: 6px;
+      vertical-align: middle;
+      box-shadow: 0 0 8px var(--accent, var(--signal));
+    }
+
+    /* ─── Builders ──────────────────────────── */
+    .builders {
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .builders-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 56px 80px;
+      margin-top: 8px;
+    }
+
+    .builder-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .builder-name a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 1px;
+      transition: all 0.2s ease;
+    }
+    .builder-name a:hover { color: var(--gold); border-color: var(--gold); }
+
+    .builder-bio {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--mist);
+    }
+
+    .builders-note {
+      margin-top: 48px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+
+    /* ─── Availability ──────────────────────── */
+    .availability {
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .availability p {
+      max-width: 640px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--mist);
+    }
+    .availability strong {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+      color: var(--frost);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .availability a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 1px;
+      transition: all 0.2s ease;
+    }
+    .availability a:hover { border-color: var(--gold); }
+    .availability .availability-cta { margin-top: 18px; }
+
+    /* ─── Footer ────────────────────────────── */
+    footer {
+      padding: 64px 0 48px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+    footer a {
+      color: var(--frost);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 2px;
+      transition: all 0.2s ease;
+    }
+    footer a:hover { color: var(--gold); border-color: var(--gold); }
+
+    .footer-mark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 34px;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 14px;
+      background: var(--gold-metal);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .footer-mark .ae {
+      background: var(--bifrost);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .footer-label { color: var(--gold); letter-spacing: 0.24em; }
+    .footer-right { align-items: flex-end; }
+
+    /* ─── Responsive ────────────────────────── */
+
+    /* Tablet / small laptop — ease the wider grids before they collapse */
+    @media (max-width: 1024px) {
+      .container { padding: 0 32px; }
+      .hero { padding: 96px 0 80px; }
+      .rune-ring { width: 400px; height: 400px; top: -100px; right: -120px; opacity: 0.4; }
+      .principles-grid,
+      .builders-grid { gap: 48px 56px; }
+      .product {
+        grid-template-columns: 52px minmax(0, 1fr) 120px;
+        grid-template-areas:
+          "num name   status"
+          "num desc   desc";
+        gap: 14px 28px;
+        align-items: start;
+        padding: 48px 0;
+      }
+      .product-num    { grid-area: num; }
+      .product-name   { grid-area: name; }
+      .product-desc   { grid-area: desc; }
+      .product-status { grid-area: status; }
+    }
+
+    @media (max-width: 820px) {
+      .container { padding: 0 24px; }
+      .hero { padding: 64px 0 48px; }
+      .rune-ring { width: 340px; height: 340px; top: -70px; right: -130px; opacity: 0.35; }
+      .runes { letter-spacing: 0.4em; margin-bottom: 36px; }
+      .principles { padding: 56px 0; }
+      .principles-grid { grid-template-columns: 1fr; gap: 40px; }
+      .principle { grid-template-columns: 40px 1fr; gap: 16px; }
+      .principle-name { font-size: 21px; }
+      .products { padding: 48px 0 64px; }
+      .product {
+        grid-template-columns: 1fr;
+        grid-template-areas: none;
+        gap: 14px;
+        padding: 36px 0;
+      }
+      .product > * { grid-area: auto; }
+      .product-status { text-align: left; margin-top: 8px; }
+      .builders { padding: 56px 0; }
+      .builders-grid { grid-template-columns: 1fr; gap: 40px; }
+      .builder-name { font-size: 21px; }
+      .availability { padding: 56px 0; }
+      header { flex-direction: column; align-items: flex-start; gap: 14px; }
+      header .meta { gap: 18px; flex-wrap: wrap; }
+      header nav { gap: 18px; }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        padding: 48px 0 40px;
+      }
+      .footer-right { align-items: flex-start; }
+    }
+
+    /* Small phones — keep the wordmark and runes from overflowing */
+    @media (max-width: 480px) {
+      .container { padding: 0 18px; }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 22px 0;
+      }
+      header .meta { gap: 14px; flex-wrap: wrap; }
+      header nav { gap: 14px; }
+      .eyebrow { margin-bottom: 28px; }
+      .hero { padding: 44px 0 40px; }
+      .hero .eyebrow { margin-bottom: 24px; }
+      .wordmark { font-size: clamp(52px, 16.5vw, 96px); margin-bottom: 16px; }
+      .runes { font-size: clamp(15px, 5vw, 22px); letter-spacing: 0.32em; margin-bottom: 32px; }
+      .tagline { font-size: clamp(22px, 6.4vw, 30px); margin-bottom: 40px; }
+      .rune-ring { width: 260px; height: 260px; top: -54px; right: -108px; opacity: 0.22; }
+      .principle { grid-template-columns: 30px 1fr; gap: 14px; }
+      .principle-name { font-size: 19px; }
+      .product-name { font-size: clamp(38px, 12vw, 52px); }
+      .builder-name { font-size: 19px; }
+      .availability strong { font-size: 21px; }
+      .footer-mark { font-size: 28px; }
+    }
+
+    /* ─── Entrance ──────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero .eyebrow  { animation: fadeUp 0.6s ease-out; }
+    .wordmark       { animation: fadeUp 0.8s ease-out 0.15s both; }
+    .tagline        { animation: fadeUp 0.8s ease-out 0.35s both; }
+    .blurb          { animation: fadeUp 0.8s ease-out 0.5s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ─── Article (advisory page) ───────────── */
+    .article { padding: 72px 0 96px; max-width: 760px; position: relative; z-index: 1; }
+    .article .eyebrow { margin-bottom: 28px; }
+    .article h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(34px, 5vw, 56px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 600; margin-bottom: 28px; }
+    .article h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(24px, 3vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; margin: 64px 0 18px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .article h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; font-weight: 500; margin: 32px 0 10px; }
+    .article p, .article li { font-size: 14.5px; line-height: 1.75; color: var(--mist); }
+    .article p { margin-bottom: 16px; }
+    .article .lede { font-size: 16px; color: var(--frost); }
+    .article strong { color: var(--frost); font-weight: 500; }
+    .article ul, .article ol { margin: 0 0 18px 22px; }
+    .article li { margin-bottom: 8px; }
+    .article a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 1px; transition: all 0.2s ease; }
+    .article a:hover { border-color: var(--gold); }
+    .article .cta-row { margin: 28px 0 8px; }
+    .article .cta { display: inline-block; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--void); background: var(--gold-metal); border: 0; padding: 14px 22px; border-radius: 2px; }
+    .article .cta:hover { filter: brightness(1.08); }
+    .article .deliverable { border-left: 2px solid var(--gold); padding-left: 16px; }
+    .article .table-wrap { overflow-x: auto; margin: 8px 0 20px; }
+    .article table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    .article th, .article td { text-align: left; vertical-align: top; padding: 14px 16px; border-bottom: 1px solid var(--line); color: var(--mist); }
+    .article th { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .article td:first-child { color: var(--frost); white-space: nowrap; }
+    .article td:last-child { white-space: nowrap; color: var(--frost); }
+    .article .takeaways { background: var(--panel); border: 1px solid var(--line); padding: 24px 28px 8px; margin: 40px 0 0; }
+    .article .takeaways h2 { margin: 0 0 16px; padding: 0; border: 0; font-size: 22px; }
+    @media (max-width: 820px) { .article { padding: 48px 0 64px; } .article h2 { margin-top: 48px; padding-top: 32px; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- header-start -->
+    <header>
+      <div class="mark"><a href="/">Værksted</a></div>
+      <div class="meta">
+        <nav aria-label="Main menu">
+          <a href="/advisory/">Advisory</a>
+          <a href="/training/">Training</a>
+          <a href="/training/#workshops">Workshops</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <div class="lang" role="group" aria-label="Language"><span aria-current="true">EN</span><a href="/da/ai-kursus/" hreflang="da" lang="da">DA</a></div>
+      </div>
+    </header>
+    <!-- header-end -->
+
+    <main class="article">
+      <div class="eyebrow">Training and workshops</div>
+      <h1>AI training for product teams</h1>
+
+      <p class="lede">AI training for product teams is hands-on coaching that changes how a team does discovery, specs, roadmaps and prioritisation with AI, using the team&#39;s own work instead of generic examples. Værksted runs it as a half-day leader session (19,500 kr), a full-day team workshop (38,000 kr) or a six-week programme (80,000 kr), priced per group in DKK ex VAT and led by a trainer who has trained 250+ product managers in AI, lean and agile.</p>
+
+      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb">Book a call with Sebastian</a></p>
+      <p>Or write to <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a></p>
+
+      <div class="takeaways">
+      <h2 id="key-takeaways">Key takeaways</h2>
+      <ul>
+      <li>Three formats, priced per group: a half-day leader session for 19,500 kr (up to 10 people), a full-day team workshop for 38,000 kr (up to 20), and a programme of four half-day sessions over about six weeks for 80,000 kr (up to 20). DKK, ex VAT.</li>
+      <li>Every format runs on your team&#39;s real discovery notes, roadmap and specs, not on sample cases.</li>
+      <li>Your team leaves with a written playbook, a prompt and skill library built from its own work, and a 30-day follow-up.</li>
+      <li>The trainer, Sebastian, has trained 250+ product managers in AI, lean and agile. He co-built Maskin with Magnus, and Værksted builds Skjald.</li>
+      <li>Contact is direct: a booking link or <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>.</li>
+      </ul>
+      </div>
+      <h2>Why most AI training doesn&#39;t change how a product team works</h2>
+      <p>Much of what is on offer teaches a tool. People leave knowing how to write a prompt, then go back to writing specs the way they always did. The work that decides whether a product team is good, finding the real problem, deciding what not to build, writing something engineers can act on, never got practised with AI on real material.</p>
+      <p>We start from the other end. We take the notes, roadmap and specs your team already has, work through them with AI in the room, and finish with a playbook your team keeps using after we leave. The measure is simple: next sprint, does the team do a part of its job differently?</p>
+      <h2>The three formats</h2>
+      <p>The three formats are a leader session, a team workshop and a multi-week programme.</p>
+      <div class="table-wrap">
+      <table>
+      <thead>
+      <tr>
+      <th>Format</th>
+      <th>Length</th>
+      <th>Group</th>
+      <th>Best for</th>
+      <th>What you leave with</th>
+      </tr>
+      </thead>
+      <tbody><tr>
+      <td>Leader session</td>
+      <td>Half day</td>
+      <td>Up to 10</td>
+      <td>Heads of product, directors and CTOs deciding where AI belongs in how the team works</td>
+      <td>A shared view of where AI helps your team and where it does not, and a short list of first changes</td>
+      </tr>
+      <tr>
+      <td>Team workshop</td>
+      <td>Full day</td>
+      <td>Up to 20</td>
+      <td>A product team working together: product managers, designers and engineers</td>
+      <td>Worked examples built on your own material, a first playbook, a starter prompt and skill library</td>
+      </tr>
+      <tr>
+      <td>Programme</td>
+      <td>Four half-day team sessions over about six weeks, plus the 30-day follow-up</td>
+      <td>Up to 20</td>
+      <td>Teams that want the change to hold across more than one roadmap cycle</td>
+      <td>A prompt and skill library that grows with your work, a playbook that has been tested in practice, and a 30-day follow-up</td>
+      </tr>
+      </tbody></table>
+      </div>
+      <p>Not sure which one fits? If you are working with one team, the workshop is the natural start. If you are deciding for a whole organisation, start with the leader session, or look at <a href="/advisory/">AI advisory for product and technology leaders</a>.</p>
+      <h2 id="workshops">What a full-day team workshop looks like</h2>
+      <p>A day follows the work your team does, not a slide deck. This is the shape; we adjust it to your team before the day.</p>
+      <p><strong>Morning</strong></p>
+      <ol>
+      <li><strong>Start from your work.</strong> You bring a real discovery question, a roadmap and a spec in progress. We agree what &quot;better&quot; would look like for this team, so there is something to check against later.</li>
+      <li><strong>Discovery with AI.</strong> Turn interview notes and support conversations into themes, problem statements and open questions. We look hard at where the output is wrong, because that is where the team learns what to trust.</li>
+      </ol>
+      <p><strong>Afternoon</strong></p>
+      <ol start="3">
+      <li><strong>Specs and prioritisation.</strong> Draft and tighten specs, test them against edge cases, and pressure-test the ranking of your backlog. The team decides what stays with a person.</li>
+      <li><strong>Roadmap.</strong> Use AI to challenge the roadmap you brought: assumptions, gaps, and what you would drop.</li>
+      <li><strong>Build your library.</strong> Turn what worked into prompts and reusable skills, write the first version of the playbook, and name who owns it.</li>
+      </ol>
+      <p>We close by agreeing a 30-day check-in.</p>
+      <h2>Where AI helps product work, and where it misleads</h2>
+      <p>The training spends as much time on the failures as on the wins, because a team that only sees the wins stops checking.</p>
+      <ul>
+      <li><strong>Discovery.</strong> AI is quick at clustering interview notes and surfacing themes. It also smooths over the odd, specific comment that often matters most. We teach the team to read the source quotes behind every theme.</li>
+      <li><strong>Specs.</strong> A model will write a fluent spec for a problem nobody has confirmed. We use it to find missing edge cases and unstated assumptions, not to replace the thinking about the problem.</li>
+      <li><strong>Prioritisation.</strong> AI can apply your criteria consistently across a long backlog. It cannot tell you whether the criteria are right. That stays a team decision.</li>
+      <li><strong>Roadmaps.</strong> Asking AI to argue against your roadmap exposes weak assumptions cheaply. Asking it to write the roadmap gives you an average of everyone else&#39;s.</li>
+      </ul>
+      <h2>Before the day: what to bring</h2>
+      <p>A workshop on your own material only works if the material is in the room. We agree the list with you beforehand. Expect to bring recent discovery notes or interview recordings, the current roadmap, one or two specs in progress, and the list of AI tools your team already uses. Anything sensitive stays under your own rules, and we decide together what is safe to put in front of a model.</p>
+      <h2>What your team takes away</h2>
+      <ul>
+      <li><strong>A written playbook.</strong> Which steps of discovery, specs, roadmap and prioritisation you hand to AI, which you check, and which stay with a person.</li>
+      <li><strong>A prompt and skill library built on your own work.</strong> Not generic templates. Things your team has already tried on its material and kept.</li>
+      <li><strong>A 30-day follow-up.</strong> We look at what stuck and what did not, and fix the playbook.</li>
+      </ul>
+      <h2>Who this is for</h2>
+      <p>Product teams and the people who lead them, in companies that want a change in how the team works rather than a certificate for one person. This is training for a company team, not an open-enrolment course.</p>
+      <p>It is a good fit if your team already uses AI tools but each person does it differently, or if leadership has asked for &quot;AI in product&quot; and nobody has defined what that means for discovery and delivery.</p>
+      <h2>Who teaches it</h2>
+      <p>Sebastian leads the training. His record:</p>
+      <ul>
+      <li>Trained 250+ product managers in AI, lean and agile.</li>
+      <li>Created LEGO Life as a master&#39;s thesis at LEGO Future Lab. It launched in 2017 and has 8M+ active users.</li>
+      <li>Product leadership at momondo, KAYAK, TELUS and Trackunit.</li>
+      <li>Advisory and interim product leadership through Mesh Firm since 2020, including Ørsted, BEC, Recright and LEGO Ventures.</li>
+      </ul>
+      <p>Sebastian co-built Maskin with Magnus, and Værksted builds Skjald. Værksted is an EU-registered company based in Copenhagen. Sebastian and Magnus have been building together since 2020. The principles we work by are on the <a href="/#principles">Værksted home page</a>.</p>
+      <h2 id="price">Price</h2>
+      <p>Every format is priced per group, not per person. One list price for everyone, no discounts. All prices are in Danish kroner (DKK) excluding VAT.</p>
+      <div class="table-wrap">
+      <table>
+      <thead>
+      <tr>
+      <th>Format</th>
+      <th>Price</th>
+      <th>Group cap</th>
+      </tr>
+      </thead>
+      <tbody><tr>
+      <td>Leader session, half day</td>
+      <td>19,500 kr per group</td>
+      <td>Up to 10</td>
+      </tr>
+      <tr>
+      <td>Team workshop, full day</td>
+      <td>38,000 kr per group per day</td>
+      <td>Up to 20</td>
+      </tr>
+      <tr>
+      <td>Programme, four half-day team sessions over about six weeks, plus the 30-day follow-up</td>
+      <td>80,000 kr per group</td>
+      <td>Up to 20</td>
+      </tr>
+      </tbody></table>
+      </div>
+      <p>The cap is what we protect: the day runs on your own notes, roadmap and specs, and that stops working when the room gets too big.</p>
+      <p><strong>Worked example: a product team of 20 people.</strong></p>
+      <ul>
+      <li>Team workshop, full day: 38,000 kr for the group, which is 1,900 kr per person.</li>
+      <li>Programme: 80,000 kr for the group, which is 4,000 kr per person.</li>
+      <li>Leader session for four leads plus the full-day workshop for all 20: 19,500 + 38,000 = 57,500 kr.</li>
+      </ul>
+      <p>If your team does not fit one of these, write to <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a> and tell us what you need.</p>
+      <h2 id="funding">Funding</h2>
+      <p>Danish companies can sometimes get a grant for advice. The scheme, SMV:Digital, pays 50% of an external advisor&#39;s fee, as a grant of 50,000 to 150,000 kr (up to 300,000 kr total spend). A grant starts at 50,000 kr, so the fee behind it starts at 100,000 kr, more than any single format on this page. It covers analysis, preparation, planning and follow-up advice. It does not cover software, licences, setup, programming or running a system.</p>
+      <p>Who can apply: small and mid-sized companies with a Danish company number (CVR) and at least 2 full-time staff. Applications are scored, so a grant is not guaranteed, and the next window is 9 November (09:00) to 16 November (23:55) 2026.</p>
+      <p>We do not promise that any training format on this page qualifies. Whether it does is for the scheme to decide. Sebastian is an approved SMV:Digital advisor. Check the <a href="https://virksomhedsguiden.dk/content/ydelser/digitalisering-raadgivertilskud/00f2ddc0-76bb-4cb8-b15c-989ed1228c3d/">official Virksomhedsguiden page</a> for current terms before you plan around it. This applies to Danish buyers only.</p>
+      <p>Værksted also builds Maskin and Skjald.</p>
+      <h2 id="faq">FAQ</h2>
+      <h3>How to learn about AI as a product manager?</h3>
+      <p>Learn it on your own work. Pick a real task, such as turning interview notes into a problem statement or a draft spec into edge-case tests, do it with AI, and compare the result with how you did it before. A course helps most when it runs on your material and ends with habits your team keeps. That is how our workshops are built.</p>
+      <h3>Can AI do product management?</h3>
+      <p>It can do parts of it well: summarising research, drafting specs, spotting gaps in a plan. It cannot own the decision about what to build and why. Good training teaches a team which steps to hand over, which to check and which to keep. We draw that line with your team, using your own discovery, roadmap and prioritisation work.</p>
+      <h3>What does AI training for product teams cost?</h3>
+      <p>A half-day leader session is 19,500 kr for up to 10 people. A full-day team workshop is 38,000 kr for up to 20. A programme of four half-day sessions over about six weeks, with the 30-day follow-up, is 80,000 kr for up to 20. Prices are per group, in DKK excluding VAT, with one list price and no discounts.</p>
+      <h3>How long does AI training for a product team take?</h3>
+      <p>A leader session is half a day, a team workshop is one full day, and the programme is four half-day team sessions over about six weeks. Each one ends with a 30-day follow-up, so the real length of the engagement is a month longer than the training itself.</p>
+      <h3>What does AI training for product teams include?</h3>
+      <p>Hands-on work on your team&#39;s own material across discovery, specs, roadmap and prioritisation. You leave with a written playbook, a prompt and skill library built from your work, and a 30-day follow-up. It does not include a certificate.</p>
+      <h3>What are the best AI courses for product managers?</h3>
+      <p>The best AI course is the kind after which your team works differently. Check four things: it runs on your own discovery notes, roadmap and specs; it shows you where AI gets it wrong; it ends with a playbook your team keeps; and someone looks at what stuck after a month. A certificate tells you far less than those four.</p>
+      <h2 id="contact">Book a call</h2>
+      <p>Tell us about your team and we will tell you which format fits. <a href="https://vaerksted.ai/bookseb">Book a call with Sebastian</a> or email <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>.</p>
+      <p>Read in Danish: <a href="/da/ai-kursus/" hreflang="da" lang="da">AI-kursus og workshop for virksomheder</a>. Back to <a href="/">Værksted</a>.</p>
+
+    </main>
+
+    <!-- footer-start -->
+    <footer>
+      <div class="footer-brand">
+        <div class="footer-mark">V<span class="ae">æ</span>rksted</div>
+        <div>© MMXXVI · All rights reserved</div>
+        <div>Mesh Firm ApS, CVR 41245271, Vesterbrogade 26, 1620 København V</div>
+      </div>
+      <nav class="footer-col" aria-label="Work with us">
+        <div class="footer-label">Work with us</div>
+        <a href="/advisory/">Advisory</a>
+        <a href="/training/">Training</a>
+        <a href="/training/#workshops">Workshops</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <nav class="footer-col" aria-label="Products">
+        <div class="footer-label">Products</div>
+        <a href="https://maskin.io">Maskin</a>
+        <a href="https://skjald.app">Skjald</a>
+        <a href="https://sindre.ai">Sindre</a>
+        <a href="https://syntheticpractitioner.com">Rask</a>
+      </nav>
+      <div class="footer-col footer-right">
+        <div class="footer-label">Elsewhere</div>
+        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
+        <a href="https://vaerksted.ai/bookseb">Book a call</a>
+        <a href="https://github.com/vaerksted-ai" rel="me noopener" target="_blank">GitHub</a>
+        <span><span aria-current="true">EN</span> | <a href="/da/ai-kursus/" hreflang="da" lang="da">DA</a></span>
+        <span>vaerksted.ai · vaerksted.org</span>
+      </div>
+    </footer>
+    <!-- footer-end -->
+
+  </div>
+</body>
+</html>
