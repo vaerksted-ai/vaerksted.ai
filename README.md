@@ -34,7 +34,7 @@ All assets are referenced by absolute paths (`/favicon.svg` etc.), so the site m
 
 ```sh
 block() { sed -n "/<!-- $2-start -->/,/<!-- $2-end -->/p" "$1" | sed -E 's/subject=[^&]*&/subject=PATH\&/; s/href="[^"]*" hreflang=/href="TWIN" hreflang=/g'; }
-for f in 404.html advisory/index.html training/index.html; do for m in header footer; do diff <(block index.html $m) <(block $f $m) && echo "$f $m identical"; done; done
+for f in 404.html advisory/index.html training/index.html cases/index.html cases/maskin/index.html cases/skjald/index.html; do for m in header footer; do diff <(block index.html $m) <(block $f $m) && echo "$f $m identical"; done; done
 for f in da/ai-raadgivning/index.html da/ai-kursus/index.html; do for m in header footer; do diff <(block da/index.html $m) <(block $f $m) && echo "$f $m identical"; done; done
 ```
 
