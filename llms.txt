@@ -4,6 +4,12 @@
 
 Værksted does two things: we build a family of AI-native products, and we advise organizations that want to become AI-native. Advice and plans only: we do not build or run systems for clients. We make money by selling software, not by selling our users — no ads, no trackers, no data brokerage, no lock-in. We aim to run a reasonable company and build technology that leaves people better off.
 
+## Cases
+
+- [Cases: Maskin and Skjald](https://vaerksted.ai/cases/): Maskin and Skjald: what each product is and where it stands, as confirmed by its owner.
+- [Maskin case: an open source AI agent workspace](https://vaerksted.ai/cases/maskin/): Maskin is an open-source (Apache-2.0) AI agent workspace where people and agents work on the same typed objects. Early-stage, with a hosted version.
+- [Skjald case: a meeting notetaker built by Værksted](https://vaerksted.ai/cases/skjald/): Skjald records, transcribes and writes up what was decided, who does what and who spoke. On your own device by default. Pre-release, not on the App Store yet.
+
 ## Principles
 
 - **Privacy by default**: Your work is yours. We don't sell it.

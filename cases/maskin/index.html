@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary -->
+  <title>Maskin case: an open source AI agent workspace | Værksted</title>
+  <meta name="description" content="Maskin is an open-source (Apache-2.0) AI agent workspace where people and agents work on the same typed objects. Early-stage, with a hosted version.">
+  <meta name="author" content="Værksted">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#07080D">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://vaerksted.ai/cases/maskin/">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="mask-icon" href="/favicon.svg" color="#E8C879">
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <!-- LLM-friendly summary (llmstxt.org) -->
+  <link rel="alternate" type="text/markdown" title="llms.txt" href="/llms.txt">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Værksted">
+  <meta property="og:title" content="Maskin case: an open source AI agent workspace | Værksted">
+  <meta property="og:description" content="Maskin is an open-source (Apache-2.0) AI agent workspace where people and agents work on the same typed objects. Early-stage, with a hosted version.">
+  <meta property="og:url" content="https://vaerksted.ai/cases/maskin/">
+  <meta property="og:image" content="https://vaerksted.ai/og-image.png?v=2">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Værksted wordmark inside a gold rune ring">
+  <meta property="og:locale" content="en_DK">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Maskin case: an open source AI agent workspace | Værksted">
+  <meta name="twitter:description" content="Maskin is an open-source (Apache-2.0) AI agent workspace where people and agents work on the same typed objects. Early-stage, with a hosted version.">
+  <meta name="twitter:image" content="https://vaerksted.ai/og-image.png?v=2">
+  <meta name="twitter:image:alt" content="Værksted wordmark inside a gold rune ring">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Runic&display=swap" rel="stylesheet">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://vaerksted.ai/cases/maskin/#article",
+        "headline": "Maskin case: an open source AI agent workspace where people and agents work on the same objects",
+        "description": "Maskin is an open-source (Apache-2.0) AI agent workspace where people and agents work on the same typed objects. Early-stage, with a hosted version.",
+        "url": "https://vaerksted.ai/cases/maskin/",
+        "mainEntityOfPage": "https://vaerksted.ai/cases/maskin/",
+        "inLanguage": "en",
+        "datePublished": "2026-10-25",
+        "dateModified": "2026-10-25",
+        "image": "https://vaerksted.ai/og-image.png?v=2",
+        "author": {
+          "@id": "https://vaerksted.ai/#organization"
+        },
+        "publisher": {
+          "@id": "https://vaerksted.ai/#organization"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "en",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Maskin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maskin is an open-source (Apache-2.0) workspace where people and AI agents work on the same typed objects: insights, bets, tasks and knowledge. Agents connect through the model context protocol (MCP), and events or schedules on objects can start agents. It is early-stage and in active development, with a hosted version."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who is Maskin for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maskin is for small teams that run AI agents and want to be pulled in for decisions. Agents work on the shared objects, and people are pulled in for decisions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Maskin open source?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The source is open under the Apache-2.0 license. Apache-2.0 is a permissive license: you may use, change and share the code, commercially too, as long as you keep the license and notices. The code is published by Sindre AI, not by Værksted."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I self-host Maskin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The repo includes a Docker setup to run it yourself. Beyond that, read the repo and judge for yourself: it is not described here as easy or supported. There is also a hosted version if you would rather not run it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What stage is Maskin at?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Early-stage and in active development, with a hosted version. In practice that means the product is still changing. If you need a settled platform today, weigh that before you commit; if you want to follow and shape an open-source workspace early, the source is there to read."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Værksted",
+            "item": "https://vaerksted.ai/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Cases",
+            "item": "https://vaerksted.ai/cases/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Maskin case",
+            "item": "https://vaerksted.ai/cases/maskin/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      /* The void between realms */
+      --void: #07080D;
+      --panel: #0E1018;
+      --frost: #EDEFF3;
+      --mist: #8B939F;
+      --line: rgba(232, 200, 121, 0.14);      /* etched gold hairline */
+      --line-strong: rgba(232, 200, 121, 0.30);
+
+      /* Asgardian gold */
+      --gold: #E8C879;
+      --gold-deep: #B8893A;
+      --gold-metal: linear-gradient(180deg,
+        #F7E7B0 0%, #E6C56F 38%, #B8893A 52%, #EBD083 72%, #F7E7B0 100%);
+
+      /* Bifröst — the rainbow bridge Heimdal guards.
+         One hue per app; blue is the house colour (Maskin). */
+      --c-red:    #F26D6D;
+      --c-amber:  #F2A33C;
+      --c-green:  #4FD08A;
+      --c-cyan:   #38C5E0;
+      --c-blue:   #5B8DEF;
+      --c-violet: #B07CF6;
+
+      --bifrost: linear-gradient(100deg,
+        var(--c-red), var(--c-amber), var(--c-green),
+        var(--c-cyan), var(--c-blue), var(--c-violet));
+
+      --signal: var(--c-blue);
+      --signal-soft: rgba(91, 141, 239, 0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      /* Asgard adrift in the cosmos */
+      background:
+        radial-gradient(ellipse 120% 80% at 50% -20%, #1A1733 0%, #0C0B1A 38%, var(--void) 72%);
+      background-attachment: fixed;
+      color: var(--frost);
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Starfield + faint etched grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        url('/stars.svg') top center / cover no-repeat,
+        linear-gradient(to right, var(--line) 1px, transparent 1px) top center / 72px 72px,
+        linear-gradient(to bottom, var(--line) 1px, transparent 1px) top center / 72px 72px;
+      -webkit-mask-image: radial-gradient(ellipse 100% 70% at 50% 0%, #000 0%, transparent 80%);
+      mask-image: radial-gradient(ellipse 100% 70% at 50% 0%, #000 0%, transparent 80%);
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Aurora over Asgard — gold horizon meets the Bifröst spectrum */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 32% at 50% -6%, rgba(232, 200, 121, 0.14) 0%, transparent 70%),
+        radial-gradient(circle at 14% -8%, rgba(176, 124, 246, 0.10) 0%, transparent 42%),
+        radial-gradient(circle at 40% -6%, rgba(91, 141, 239, 0.10) 0%, transparent 42%),
+        radial-gradient(circle at 66% -6%, rgba(79, 208, 138, 0.07) 0%, transparent 42%),
+        radial-gradient(circle at 90% -8%, rgba(242, 163, 60, 0.08) 0%, transparent 42%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── Top bar ───────────────────────────── */
+    header {
+      padding: 28px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+    header .mark { color: var(--gold); font-weight: 500; letter-spacing: 0.08em; }
+    header .mark a { color: inherit; text-decoration: none; }
+    header .meta { display: flex; gap: 32px; align-items: center; }
+    header nav { display: flex; gap: 28px; flex-wrap: wrap; }
+    header nav a, header .lang a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+    header nav a:hover, header .lang a:hover { color: var(--gold); }
+    header .lang { display: flex; gap: 10px; }
+    header .lang [aria-current] { color: var(--gold); }
+
+    /* ─── Eyebrow shared ────────────────────── */
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 56px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 2px;
+      border-radius: 1px;
+      background: var(--bifrost);
+    }
+
+    /* ─── Hero ──────────────────────────────── */
+    .hero { padding: 120px 0 96px; position: relative; overflow-x: clip; }
+    .hero .eyebrow { margin-bottom: 36px; }
+    .hero > * { position: relative; z-index: 1; }
+
+    /* Bifröst observatory — a slowly turning rune ring */
+    .rune-ring {
+      position: absolute;
+      top: -150px;
+      right: -160px;
+      width: 560px;
+      height: 560px;
+      color: var(--gold);
+      opacity: 0.5;
+      z-index: 0;
+      pointer-events: none;
+      animation: spin 200s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .wordmark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(72px, 13vw, 196px);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      font-weight: 600;
+      margin-bottom: 20px;
+      /* Polished Asgardian gold */
+      background: var(--gold-metal);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .wordmark .ae {
+      background: var(--bifrost);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    /* Værksted, carved in Elder Futhark */
+    .runes {
+      font-family: 'Noto Sans Runic', serif;
+      font-size: clamp(18px, 2.2vw, 28px);
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      opacity: 0.75;
+      margin-bottom: 44px;
+      padding-left: 0.15em;
+    }
+
+    .tagline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(26px, 3.4vw, 44px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      color: var(--frost);
+      max-width: 800px;
+      margin-bottom: 56px;
+    }
+
+    .blurb {
+      max-width: 600px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--mist);
+    }
+    .blurb em {
+      color: var(--frost);
+      font-style: normal;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 1px;
+    }
+
+    /* ─── Principles ────────────────────────── */
+    .principles {
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 56px 80px;
+      margin-top: 8px;
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      align-items: baseline;
+    }
+
+    .principle-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 22px;
+      color: var(--accent, var(--signal));
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .principle-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .principle-desc {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--mist);
+    }
+
+    /* ─── Products ──────────────────────────── */
+    .products {
+      padding: 88px 0 120px;
+      border-top: 1px solid var(--line);
+    }
+
+    .product {
+      display: grid;
+      grid-template-columns: 80px 1.1fr 2fr 140px;
+      gap: 32px;
+      padding: 56px 0;
+      border-top: 1px solid var(--line);
+      align-items: baseline;
+      transition: background 0.4s ease;
+    }
+    .product:last-child { border-bottom: 1px solid var(--line); }
+    .product:hover { background: color-mix(in srgb, var(--accent, var(--signal)) 8%, transparent); }
+
+    .product-num {
+      font-size: 11px;
+      color: var(--accent, var(--mist));
+      letter-spacing: 0.15em;
+    }
+
+    .product-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(40px, 4.6vw, 62px);
+      line-height: 1;
+      letter-spacing: -0.035em;
+      font-weight: 600;
+    }
+    .product-name a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .product-name a:hover { color: var(--accent, var(--signal)); }
+
+    .product-desc { font-size: 14px; line-height: 1.65; color: var(--frost); }
+    .product-desc .meaning {
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--accent, var(--signal));
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .product-status {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: right;
+      color: var(--mist);
+    }
+    .product-status.live { color: var(--accent, var(--signal)); }
+    .product-status .dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent, var(--signal));
+      margin-right: 6px;
+      vertical-align: middle;
+      box-shadow: 0 0 8px var(--accent, var(--signal));
+    }
+
+    /* ─── Builders ──────────────────────────── */
+    .builders {
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .builders-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 56px 80px;
+      margin-top: 8px;
+    }
+
+    .builder-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .builder-name a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 1px;
+      transition: all 0.2s ease;
+    }
+    .builder-name a:hover { color: var(--gold); border-color: var(--gold); }
+
+    .builder-bio {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--mist);
+    }
+
+    .builders-note {
+      margin-top: 48px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+
+    /* ─── Availability ──────────────────────── */
+    .availability {
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .availability p {
+      max-width: 640px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--mist);
+    }
+    .availability strong {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+      color: var(--frost);
+      display: block;
+      margin-bottom: 18px;
+    }
+    .availability a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 1px;
+      transition: all 0.2s ease;
+    }
+    .availability a:hover { border-color: var(--gold); }
+    .availability .availability-cta { margin-top: 18px; }
+
+    /* ─── Footer ────────────────────────────── */
+    footer {
+      padding: 64px 0 48px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+    }
+    footer a {
+      color: var(--frost);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line-strong);
+      padding-bottom: 2px;
+      transition: all 0.2s ease;
+    }
+    footer a:hover { color: var(--gold); border-color: var(--gold); }
+
+    .footer-mark {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 34px;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 14px;
+      background: var(--gold-metal);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .footer-mark .ae {
+      background: var(--bifrost);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .footer-label { color: var(--gold); letter-spacing: 0.24em; }
+    .footer-right { align-items: flex-end; }
+
+    /* ─── Responsive ────────────────────────── */
+
+    /* Tablet / small laptop — ease the wider grids before they collapse */
+    @media (max-width: 1024px) {
+      .container { padding: 0 32px; }
+      .hero { padding: 96px 0 80px; }
+      .rune-ring { width: 400px; height: 400px; top: -100px; right: -120px; opacity: 0.4; }
+      .principles-grid,
+      .builders-grid { gap: 48px 56px; }
+      .product {
+        grid-template-columns: 52px minmax(0, 1fr) 120px;
+        grid-template-areas:
+          "num name   status"
+          "num desc   desc";
+        gap: 14px 28px;
+        align-items: start;
+        padding: 48px 0;
+      }
+      .product-num    { grid-area: num; }
+      .product-name   { grid-area: name; }
+      .product-desc   { grid-area: desc; }
+      .product-status { grid-area: status; }
+    }
+
+    @media (max-width: 820px) {
+      .container { padding: 0 24px; }
+      .hero { padding: 64px 0 48px; }
+      .rune-ring { width: 340px; height: 340px; top: -70px; right: -130px; opacity: 0.35; }
+      .runes { letter-spacing: 0.4em; margin-bottom: 36px; }
+      .principles { padding: 56px 0; }
+      .principles-grid { grid-template-columns: 1fr; gap: 40px; }
+      .principle { grid-template-columns: 40px 1fr; gap: 16px; }
+      .principle-name { font-size: 21px; }
+      .products { padding: 48px 0 64px; }
+      .product {
+        grid-template-columns: 1fr;
+        grid-template-areas: none;
+        gap: 14px;
+        padding: 36px 0;
+      }
+      .product > * { grid-area: auto; }
+      .product-status { text-align: left; margin-top: 8px; }
+      .builders { padding: 56px 0; }
+      .builders-grid { grid-template-columns: 1fr; gap: 40px; }
+      .builder-name { font-size: 21px; }
+      .availability { padding: 56px 0; }
+      header { flex-direction: column; align-items: flex-start; gap: 14px; }
+      header .meta { gap: 18px; flex-wrap: wrap; }
+      header nav { gap: 18px; }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        padding: 48px 0 40px;
+      }
+      .footer-right { align-items: flex-start; }
+    }
+
+    /* Small phones — keep the wordmark and runes from overflowing */
+    @media (max-width: 480px) {
+      .container { padding: 0 18px; }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 22px 0;
+      }
+      header .meta { gap: 14px; flex-wrap: wrap; }
+      header nav { gap: 14px; }
+      .eyebrow { margin-bottom: 28px; }
+      .hero { padding: 44px 0 40px; }
+      .hero .eyebrow { margin-bottom: 24px; }
+      .wordmark { font-size: clamp(52px, 16.5vw, 96px); margin-bottom: 16px; }
+      .runes { font-size: clamp(15px, 5vw, 22px); letter-spacing: 0.32em; margin-bottom: 32px; }
+      .tagline { font-size: clamp(22px, 6.4vw, 30px); margin-bottom: 40px; }
+      .rune-ring { width: 260px; height: 260px; top: -54px; right: -108px; opacity: 0.22; }
+      .principle { grid-template-columns: 30px 1fr; gap: 14px; }
+      .principle-name { font-size: 19px; }
+      .product-name { font-size: clamp(38px, 12vw, 52px); }
+      .builder-name { font-size: 19px; }
+      .availability strong { font-size: 21px; }
+      .footer-mark { font-size: 28px; }
+    }
+
+    /* ─── Entrance ──────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero .eyebrow  { animation: fadeUp 0.6s ease-out; }
+    .wordmark       { animation: fadeUp 0.8s ease-out 0.15s both; }
+    .tagline        { animation: fadeUp 0.8s ease-out 0.35s both; }
+    .blurb          { animation: fadeUp 0.8s ease-out 0.5s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* ─── Article (advisory page) ───────────── */
+    .article { padding: 72px 0 96px; max-width: 760px; position: relative; z-index: 1; }
+    .article .eyebrow { margin-bottom: 28px; }
+    .article h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(34px, 5vw, 56px); line-height: 1.08; letter-spacing: -0.03em; font-weight: 600; margin-bottom: 28px; }
+    .article h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(24px, 3vw, 32px); line-height: 1.2; letter-spacing: -0.02em; font-weight: 500; margin: 64px 0 18px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .article h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; line-height: 1.25; letter-spacing: -0.01em; font-weight: 500; margin: 32px 0 10px; }
+    .article p, .article li { font-size: 14.5px; line-height: 1.75; color: var(--mist); }
+    .article p { margin-bottom: 16px; }
+    .article .lede { font-size: 16px; color: var(--frost); }
+    .article strong { color: var(--frost); font-weight: 500; }
+    .article ul, .article ol { margin: 0 0 18px 22px; }
+    .article li { margin-bottom: 8px; }
+    .article a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 1px; transition: all 0.2s ease; }
+    .article a:hover { border-color: var(--gold); }
+    .article .cta-row { margin: 28px 0 8px; }
+    .article .cta { display: inline-block; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--void); background: var(--gold-metal); border: 0; padding: 14px 22px; border-radius: 2px; }
+    .article .cta:hover { filter: brightness(1.08); }
+    .article .deliverable { border-left: 2px solid var(--gold); padding-left: 16px; }
+    .article .table-wrap { overflow-x: auto; margin: 8px 0 20px; }
+    .article table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    .article th, .article td { text-align: left; vertical-align: top; padding: 14px 16px; border-bottom: 1px solid var(--line); color: var(--mist); }
+    .article th { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .article td:first-child { color: var(--frost); white-space: nowrap; }
+    .article td:last-child { white-space: nowrap; color: var(--frost); }
+    .article .takeaways { background: var(--panel); border: 1px solid var(--line); padding: 24px 28px 8px; margin: 40px 0 0; }
+    .article .takeaways h2 { margin: 0 0 16px; padding: 0; border: 0; font-size: 22px; }
+    @media (max-width: 820px) { .article { padding: 48px 0 64px; } .article h2 { margin-top: 48px; padding-top: 32px; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- header-start -->
+    <header>
+      <div class="mark"><a href="/">Værksted</a></div>
+      <div class="meta">
+        <nav aria-label="Main menu">
+          <a href="/advisory/">Advisory</a>
+          <a href="/training/">Training</a>
+          <a href="/training/#workshops">Workshops</a>
+          <a href="/cases/">Cases</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <div class="lang" role="group" aria-label="Language"><span aria-current="true">EN</span><a href="/da/" hreflang="da" lang="da">DA</a></div>
+      </div>
+    </header>
+    <!-- header-end -->
+
+    <main class="article">
+      <div class="eyebrow">Case</div>
+      <h1>Maskin case: an open source AI agent workspace where people and agents work on the same objects</h1>
+
+      <p class="lede">Maskin is an open source AI agent workspace. People and AI agents work on the same typed objects there: insights, bets, tasks and knowledge. It is Apache-2.0 licensed and built for small teams that run AI agents and want to be pulled in for decisions. It is early-stage and in active development, with a hosted version.</p>
+
+      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb">Book a call with Sebastian</a></p>
+      <p>Or write to <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fcases%2Fmaskin%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a></p>
+
+      <div class="takeaways">
+      <h2 id="key-takeaways">Key takeaways</h2>
+      <ul>
+      <li>What it is: an open-source (Apache-2.0) workspace where people and AI agents work on the same typed objects: insights, bets, tasks and knowledge.</li>
+      <li>Who it is for: small teams that run AI agents and want to be pulled in for decisions.</li>
+      <li>How agents join: through the model context protocol (MCP). Events or schedules on objects can start agents.</li>
+      <li>Self-hosting: the source is open under Apache-2.0, and the repo includes a Docker setup to run it yourself.</li>
+      <li>Status: early-stage, in active development, with a hosted version.</li>
+      <li>Authorship: Sebastian co-built Maskin with Magnus. The code is published by Sindre AI, not Værksted.</li>
+      </ul>
+      </div>
+
+      <h2>Why a workspace, not another chat window</h2>
+      <p>Most agent setups keep the agent&#39;s work somewhere the team does not look: a chat window, a log, a folder of files. The work happens in one place and the decision about the work happens in another, and a person ends up carrying things between them.</p>
+      <p>Maskin takes the other route. The agent and the person open the same record. Each record has a type, so either of them can tell what it is and where it sits in the flow before reading it. That is what &quot;typed objects&quot; means here, and it is why the workspace can hold insights, bets, tasks and knowledge side by side instead of one long thread.</p>
+      <p>It also separates a workspace from the thing many search results for this topic are about. A framework is a library you use to build an agent. A workspace is where people and agents do shared work. Maskin is the second kind.</p>
+
+      <h2>How the work moves</h2>
+      <p>Work moves from insight to bet to task, with knowledge kept alongside. Insight, bet, task and knowledge are four kinds of object, so each step is a record that a person and an agent can both open, instead of a message that only one of them saw.</p>
+      <p>Agents connect through the model context protocol (MCP), a standard way for an AI application to reach tools and data. Events or schedules on objects can start agents. So an agent can be started by something that happens to an object, or by the clock, and nobody has to open a chat first. A person&#39;s part is the decisions: Maskin is for teams that want to be pulled in for those, not for every step.</p>
+
+      <h2>Open source and self-hosting</h2>
+      <p>The source is open under Apache-2.0, and the repo includes a Docker setup to run it yourself. Apache-2.0 lets you use, change and share the code, including in a commercial setting, if you keep the license and notices.</p>
+      <p>Beyond that, read the repo and judge for yourself: self-hosting is not described here as easy or supported. A hosted version also exists, and it is the alternative if you do not want to run anything.</p>
+
+      <h2>Where it stands</h2>
+      <p>Maskin is early-stage and in active development, with a hosted version. Treat that as the real status: the product is still changing.</p>
+
+      <h2>Five questions to ask of any open source AI agent workspace</h2>
+      <p>You can use these on Maskin and on anything else you are comparing. Answers for Maskin are given as far as this page can state them.</p>
+      <ol>
+      <li><strong>Do the agent and the person see the same record?</strong> In Maskin they work on the same typed objects.</li>
+      <li><strong>What starts an agent?</strong> A person typing is the weakest answer. In Maskin, events or schedules on objects can start agents.</li>
+      <li><strong>What does the license let you do?</strong> Apache-2.0 allows use, change and sharing, commercially too.</li>
+      <li><strong>What does the project ship for running it yourself?</strong> The repo includes a Docker setup. Check it, rather than trust a summary like this one.</li>
+      <li><strong>How honest is the project about its maturity?</strong> Maskin is early-stage and says so.</li>
+      </ol>
+
+      <h2>Who built it, and why it is on this site</h2>
+      <p>Sebastian co-built Maskin with Magnus. The code is published by Sindre AI, not Værksted. The reason it sits here is the advice. Værksted advises organizations on becoming AI-native, and the person who gives that advice has also built a product around the idea of people and agents working together.</p>
+      <p>Værksted gives advice and plans only. It does not build or run systems for clients. If you want to talk about where AI pays off in your own business, see <a href="/advisory/">AI advisory for product and technology leaders</a>. If you want your team to practise it on its own work, see <a href="/training/">training and workshops for product teams</a>. The principles Værksted works by are on <a href="/#principles">the home page</a>, and the other case is <a href="/cases/skjald/">Skjald</a>. For the product itself, go to <a href="https://maskin.io">maskin.io</a>. All cases are listed on the <a href="/cases/">cases page</a>.</p>
+
+      <h2 id="faq">FAQ</h2>
+      <h3>What is Maskin?</h3>
+      <p>Maskin is an open-source (Apache-2.0) workspace where people and AI agents work on the same typed objects: insights, bets, tasks and knowledge. Agents connect through the model context protocol (MCP), and events or schedules on objects can start agents. It is early-stage and in active development, with a hosted version.</p>
+      <h3>Who is Maskin for?</h3>
+      <p>Maskin is for small teams that run AI agents and want to be pulled in for decisions. Agents work on the shared objects, and people are pulled in for decisions.</p>
+      <h3>Is Maskin open source?</h3>
+      <p>Yes. The source is open under the Apache-2.0 license. Apache-2.0 is a permissive license: you may use, change and share the code, commercially too, as long as you keep the license and notices. The code is published by Sindre AI, not by Værksted.</p>
+      <h3>Can I self-host Maskin?</h3>
+      <p>The repo includes a Docker setup to run it yourself. Beyond that, read the repo and judge for yourself: it is not described here as easy or supported. There is also a hosted version if you would rather not run it.</p>
+      <h3>What stage is Maskin at?</h3>
+      <p>Early-stage and in active development, with a hosted version. In practice that means the product is still changing. If you need a settled platform today, weigh that before you commit; if you want to follow and shape an open-source workspace early, the source is there to read.</p>
+
+      <h2 id="contact">Book a call</h2>
+      <p>If you want to talk about AI advice or training for your team, <a href="https://vaerksted.ai/bookseb">book a call with Sebastian</a> or email <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fcases%2Fmaskin%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>.</p>
+      <p>Back to <a href="/cases/">all cases</a> or <a href="/">Værksted</a>.</p>
+
+    </main>
+
+    <!-- footer-start -->
+    <footer>
+      <div class="footer-brand">
+        <div class="footer-mark">V<span class="ae">æ</span>rksted</div>
+        <div>© MMXXVI · All rights reserved</div>
+        <div>Mesh Firm ApS, CVR 41245271, Vesterbrogade 26, 1620 København V</div>
+      </div>
+      <nav class="footer-col" aria-label="Work with us">
+        <div class="footer-label">Work with us</div>
+        <a href="/advisory/">Advisory</a>
+        <a href="/training/">Training</a>
+        <a href="/training/#workshops">Workshops</a>
+        <a href="/cases/">Cases</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <nav class="footer-col" aria-label="Products">
+        <div class="footer-label">Products</div>
+        <a href="https://maskin.io">Maskin</a>
+        <a href="https://skjald.app">Skjald</a>
+        <a href="https://sindre.ai">Sindre</a>
+        <a href="https://syntheticpractitioner.com">Rask</a>
+      </nav>
+      <div class="footer-col footer-right">
+        <div class="footer-label">Elsewhere</div>
+        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fcases%2Fmaskin%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
+        <a href="https://vaerksted.ai/bookseb">Book a call</a>
+        <a href="https://github.com/vaerksted-ai" rel="me noopener" target="_blank">GitHub</a>
+        <span><span aria-current="true">EN</span> | <a href="/da/" hreflang="da" lang="da">DA</a></span>
+        <span>vaerksted.ai · vaerksted.org</span>
+      </div>
+    </footer>
+    <!-- footer-end -->
+
+  </div>
+</body>
+</html>
