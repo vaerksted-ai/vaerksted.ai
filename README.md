@@ -124,7 +124,7 @@ anywhere without the webfonts.
 
 - Single HTML file, ~26KB
 - Three webfonts loaded from Google Fonts (Space Grotesk, JetBrains Mono, Noto Sans Runic)
-- No JavaScript, no analytics by default
+- Analytics: one cookieless PostHog snippet in each page's head (memory persistence, no autocapture, no session recording). It sends page views and a `cta_click` event for every link carrying `data-cta`. The 404 page carries the attributes but no snippet.
 - Lighthouse should score ≥98 across the board out of the box
 
 If you want to self-host the fonts (faster + GDPR-friendlier), grab the woff2 files from [Google Fonts](https://fonts.google.com/specimen/Space+Grotesk) and [JetBrains](https://www.jetbrains.com/lp/mono/), drop them in a `/fonts` folder, and replace the `<link>` to fonts.googleapis.com with a local `@font-face` block.

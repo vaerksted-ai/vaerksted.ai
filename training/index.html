@@ -767,6 +767,11 @@
     .article .takeaways h2 { margin: 0 0 16px; padding: 0; border: 0; font-size: 22px; }
     @media (max-width: 820px) { .article { padding: 48px 0 64px; } .article h2 { margin-top: 48px; padding-top: 32px; } }
   </style>
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session identify reset opt_in_capturing opt_out_capturing set_config".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_tfrEvZMAfNvPzmof6dHMndPEDuLe4wNdPDBTUJA66Zww',{api_host:'https://eu.i.posthog.com',persistence:'memory',person_profiles:'identified_only',autocapture:false,disable_session_recording:true,defaults:'2025-05-24'});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-cta]');if(a)posthog.capture('cta_click',{cta:a.getAttribute('data-cta'),cta_text:(a.textContent||'').trim().slice(0,80),cta_href:a.getAttribute('href'),page_path:location.pathname},{send_instantly:true})});
+</script>
 </head>
 <body>
   <div class="container">
@@ -793,8 +798,8 @@
 
       <p class="lede">AI training for product teams is hands-on coaching that changes how a team does discovery, specs, roadmaps and prioritisation with AI, using the team&#39;s own work instead of generic examples. Værksted runs it as a half-day leader session (19,500 kr), a full-day team workshop (38,000 kr) or a six-week programme (80,000 kr), priced per group in DKK ex VAT and led by a trainer who has trained 250+ product managers in AI, lean and agile.</p>
 
-      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb">Book a call with Sebastian</a></p>
-      <p>Or write to <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a></p>
+      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb" data-cta="book_call">Book a call with Sebastian</a></p>
+      <p>Or write to <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a></p>
 
       <div class="takeaways">
       <h2 id="key-takeaways">Key takeaways</h2>
@@ -803,7 +808,7 @@
       <li>Every format runs on your team&#39;s real discovery notes, roadmap and specs, not on sample cases.</li>
       <li>Your team leaves with a written playbook, a prompt and skill library built from its own work, and a 30-day follow-up.</li>
       <li>The trainer, Sebastian, has trained 250+ product managers in AI, lean and agile. He co-built Maskin with Magnus, and Værksted builds Skjald.</li>
-      <li>Contact is direct: a booking link or <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>.</li>
+      <li>Contact is direct: a booking link or <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>.</li>
       </ul>
       </div>
       <h2>Why most AI training doesn&#39;t change how a product team works</h2>
@@ -923,7 +928,7 @@
       <li>Programme: 80,000 kr for the group, which is 4,000 kr per person.</li>
       <li>Leader session for four leads plus the full-day workshop for all 20: 19,500 + 38,000 = 57,500 kr.</li>
       </ul>
-      <p>If your team does not fit one of these, write to <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a> and tell us what you need.</p>
+      <p>If your team does not fit one of these, write to <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a> and tell us what you need.</p>
       <h2 id="funding">Funding</h2>
       <p>Danish companies can sometimes get a grant for advice. The scheme, SMV:Digital, pays 50% of an external advisor&#39;s fee, as a grant of 50,000 to 150,000 kr (up to 300,000 kr total spend). A grant starts at 50,000 kr, so the fee behind it starts at 100,000 kr, more than any single format on this page. It covers analysis, preparation, planning and follow-up advice. It does not cover software, licences, setup, programming or running a system.</p>
       <p>Who can apply: small and mid-sized companies with a Danish company number (CVR) and at least 2 full-time staff. Applications are scored, so a grant is not guaranteed, and the next window is 9 November (09:00) to 16 November (23:55) 2026.</p>
@@ -943,7 +948,7 @@
       <h3>What are the best AI courses for product managers?</h3>
       <p>The best AI course is the kind after which your team works differently. Check four things: it runs on your own discovery notes, roadmap and specs; it shows you where AI gets it wrong; it ends with a playbook your team keeps; and someone looks at what stuck after a month. A certificate tells you far less than those four.</p>
       <h2 id="contact">Book a call</h2>
-      <p>Tell us about your team and we will tell you which format fits. <a href="https://vaerksted.ai/bookseb">Book a call with Sebastian</a> or email <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>.</p>
+      <p>Tell us about your team and we will tell you which format fits. <a href="https://vaerksted.ai/bookseb" data-cta="book_call">Book a call with Sebastian</a> or email <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>.</p>
       <p>Read in Danish: <a href="/da/ai-kursus/" hreflang="da" lang="da">AI-kursus og workshop for virksomheder</a>. Back to <a href="/">Værksted</a>.</p>
 
     </main>
@@ -972,8 +977,8 @@
       </nav>
       <div class="footer-col footer-right">
         <div class="footer-label">Elsewhere</div>
-        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
-        <a href="https://vaerksted.ai/bookseb">Book a call</a>
+        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Ftraining%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>
+        <a href="https://vaerksted.ai/bookseb" data-cta="book_call">Book a call</a>
         <a href="https://github.com/vaerksted-ai" rel="me noopener" target="_blank">GitHub</a>
         <span><span aria-current="true">EN</span> | <a href="/da/ai-kursus/" hreflang="da" lang="da">DA</a></span>
         <span>vaerksted.ai · vaerksted.org</span>
