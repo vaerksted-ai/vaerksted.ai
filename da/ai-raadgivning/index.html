@@ -754,6 +754,11 @@
     .article .takeaways h2 { margin: 0 0 16px; padding: 0; border: 0; font-size: 22px; }
     @media (max-width: 820px) { .article { padding: 48px 0 64px; } .article h2 { margin-top: 48px; padding-top: 32px; } }
   </style>
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session identify reset opt_in_capturing opt_out_capturing set_config".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_tfrEvZMAfNvPzmof6dHMndPEDuLe4wNdPDBTUJA66Zww',{api_host:'https://eu.i.posthog.com',persistence:'memory',person_profiles:'identified_only',autocapture:false,capture_heatmaps:false,capture_dead_clicks:false,capture_exceptions:false,disable_session_recording:true,enable_recording_console_log:false,defaults:'2025-05-24'});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-cta]');if(a)posthog.capture('cta_click',{cta:a.getAttribute('data-cta'),cta_text:(a.textContent||'').trim().slice(0,80),cta_href:a.getAttribute('href'),page_path:location.pathname},{send_instantly:true})});
+</script>
 </head>
 <body>
   <div class="container">
@@ -781,8 +786,8 @@
       <p class="lede">AI-rådgivning hjælper en ledelse med at afgøre, hvor AI giver et bedre resultat i virksomheden, lave en plan med navngivne ejere og mål, og få et første use case i brug i eget arbejde. Hos Værksted sælges rådgivningen som to adskilte tilbud med fast omfang: planlægning til 105.000 kr og et første use case til 52.500 kr (ekskl. moms).</p>
 
       <p>Rådgivningen ledes af Sebastian, der har trænet 250+ product managers i AI, lean og agile, og som har bygget Maskin sammen med Magnus.</p>
-      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb">Book et opkald med Sebastian</a></p>
-      <p>Eller skriv til <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fda%2Fai-raadgivning%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>. Vi arbejder på dansk og engelsk.</p>
+      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb" data-cta="book_call">Book et opkald med Sebastian</a></p>
+      <p>Eller skriv til <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fda%2Fai-raadgivning%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>. Vi arbejder på dansk og engelsk.</p>
 
       <h2>Problemet: AI-forsøg uden ejer og uden resultat</h2>
       <p>De fleste ledelser er forbi spørgsmålet om, hvorvidt de skal bruge AI. Der er købt licenser, nogle få medarbejdere er gået forrest, og der kører en håndfuld forsøg. Det, der typisk mangler, er tre ting: et klart billede af, hvor AI ændrer resultatet i jeres eget arbejde, en plan, hvor der står et navn ved hver opgave, og ét use case, der bruges i det daglige arbejde i stedet for i en demo.</p>
@@ -929,7 +934,7 @@
       </div>
       <p>De er to adskilte linjer, og det første use case aftales for sig, når I har planen. Det skriftlige omfang foreligger, før arbejdet begynder.</p>
       <h2 id="funding">Tilskud til danske virksomheder</h2>
-      <p>Sebastian er godkendt rådgiver i SMV:Digital. Danske virksomheder kan søge tilskud til rådgivning om digitalisering. Vil du have os til at bekræfte godkendelsen, før du ansøger, så skriv til <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fda%2Fai-raadgivning%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>.</p>
+      <p>Sebastian er godkendt rådgiver i SMV:Digital. Danske virksomheder kan søge tilskud til rådgivning om digitalisering. Vil du have os til at bekræfte godkendelsen, før du ansøger, så skriv til <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fda%2Fai-raadgivning%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>.</p>
       <p>SMV:Digital er et rådgivertilskud til digitalisering, som Erhvervshusene driver med støtte fra EU&#39;s Regionalfond. Tilskuddet er 50 % af udgiften til en ekstern rådgiver, dog mindst 50.000 kr og højst 150.000 kr. Virksomheden betaler den anden halvdel selv.</p>
       <ul>
       <li><strong>Det dækker:</strong> analyse, forberedelse, planlægning og opfølgende rådgivning. Det dækker hverken software, licenser, opsætning, programmering eller opbygning og drift af et system.</li>
@@ -960,8 +965,8 @@
       <p>Forløbet slutter, når det første use case er i brug, og planen ligger hos dem, der skal eje den. Vi siger, hvad vi ville gøre som næste skridt, og I bestemmer, hvem der gennemfører det: jeres eget team eller en leverandør.</p>
       <h2 id="contact">Tal med os</h2>
       <p>Fortæl os, hvor jeres team er med AI, og hvad I gerne vil have opnået om seks måneder. Vi siger, om rådgivning er det rigtige næste skridt.</p>
-      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb">Book et opkald med Sebastian</a></p>
-      <p>Eller skriv til <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fda%2Fai-raadgivning%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>. Du kan også gå tilbage til <a href="/da/">forsiden</a>. Read in English: <a href="/advisory/" hreflang="en" lang="en">AI advisory for product and technology leaders</a>.</p>
+      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb" data-cta="book_call">Book et opkald med Sebastian</a></p>
+      <p>Eller skriv til <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fda%2Fai-raadgivning%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>. Du kan også gå tilbage til <a href="/da/">forsiden</a>. Read in English: <a href="/advisory/" hreflang="en" lang="en">AI advisory for product and technology leaders</a>.</p>
 
     </main>
 
@@ -971,6 +976,7 @@
         <div class="footer-mark">V<span class="ae">æ</span>rksted</div>
         <div>© MMXXVI · Alle rettigheder forbeholdes</div>
         <div>Mesh Firm ApS, CVR 41245271, Vesterbrogade 26, 1620 København V</div>
+        <div>Dette site tæller besøg og klik på Book et opkald og e-mail med PostHog, hostet i EU. Ingen cookies, intet gemt på din enhed, ingen optagelse, og vi gemmer kun dit land, ikke din IP-adresse.</div>
       </div>
       <nav class="footer-col" aria-label="Arbejd med os">
         <div class="footer-label">Arbejd med os</div>
@@ -989,8 +995,8 @@
       </nav>
       <div class="footer-col footer-right">
         <div class="footer-label">Andre steder</div>
-        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fda%2Fai-raadgivning%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
-        <a href="https://vaerksted.ai/bookseb">Book et opkald</a>
+        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fda%2Fai-raadgivning%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>
+        <a href="https://vaerksted.ai/bookseb" data-cta="book_call">Book et opkald</a>
         <a href="https://github.com/vaerksted-ai" rel="me noopener" target="_blank">GitHub</a>
         <span><a href="/advisory/" hreflang="en" lang="en">EN</a> | <span aria-current="true">DA</span></span>
         <span>vaerksted.ai · vaerksted.org</span>

@@ -677,6 +677,11 @@
       }
     }
   </style>
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session identify reset opt_in_capturing opt_out_capturing set_config".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_tfrEvZMAfNvPzmof6dHMndPEDuLe4wNdPDBTUJA66Zww',{api_host:'https://eu.i.posthog.com',persistence:'memory',person_profiles:'identified_only',autocapture:false,capture_heatmaps:false,capture_dead_clicks:false,capture_exceptions:false,disable_session_recording:true,enable_recording_console_log:false,defaults:'2025-05-24'});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-cta]');if(a)posthog.capture('cta_click',{cta:a.getAttribute('data-cta'),cta_text:(a.textContent||'').trim().slice(0,80),cta_href:a.getAttribute('href'),page_path:location.pathname},{send_instantly:true})});
+</script>
 </head>
 <body>
   <div class="container">
@@ -857,9 +862,9 @@
     <section class="availability" id="contact">
       <p>
         <strong>Two ways we work.</strong>
-        We build our own products, and we advise organizations on becoming AI-native. That means advice and plans: where AI pays off, who owns each step, and how you will know it worked. We don't build or run systems for clients. We take on a small number of engagements at a time, so each one gets our full attention. Reach us at <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
+        We build our own products, and we advise organizations on becoming AI-native. That means advice and plans: where AI pays off, who owns each step, and how you will know it worked. We don't build or run systems for clients. We take on a small number of engagements at a time, so each one gets our full attention. Reach us at <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>
       </p>
-      <p class="availability-cta"><a href="https://vaerksted.ai/bookseb">Book a call</a></p>
+      <p class="availability-cta"><a href="https://vaerksted.ai/bookseb" data-cta="book_call">Book a call</a></p>
       <p class="availability-cta"><a href="/advisory/">AI advisory for product and technology leaders</a></p>
       <p class="availability-cta"><a href="/training/">AI training for product teams</a></p>
       <p class="availability-cta"><a href="/cases/">Cases: Maskin and Skjald</a></p>
@@ -871,6 +876,7 @@
         <div class="footer-mark">V<span class="ae">æ</span>rksted</div>
         <div>© MMXXVI · All rights reserved</div>
         <div>Mesh Firm ApS, CVR 41245271, Vesterbrogade 26, 1620 København V</div>
+        <div>This site counts visits and clicks on Book a call and email, using PostHog hosted in the EU. No cookies, nothing stored on your device, no recording, and we keep only your country, not your IP address.</div>
       </div>
       <nav class="footer-col" aria-label="Work with us">
         <div class="footer-label">Work with us</div>
@@ -889,8 +895,8 @@
       </nav>
       <div class="footer-col footer-right">
         <div class="footer-label">Elsewhere</div>
-        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
-        <a href="https://vaerksted.ai/bookseb">Book a call</a>
+        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>
+        <a href="https://vaerksted.ai/bookseb" data-cta="book_call">Book a call</a>
         <a href="https://github.com/vaerksted-ai" rel="me noopener" target="_blank">GitHub</a>
         <span><span aria-current="true">EN</span> | <a href="/da/" hreflang="da" lang="da">DA</a></span>
         <span>vaerksted.ai · vaerksted.org</span>

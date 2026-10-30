@@ -758,6 +758,11 @@
     .article .takeaways h2 { margin: 0 0 16px; padding: 0; border: 0; font-size: 22px; }
     @media (max-width: 820px) { .article { padding: 48px 0 64px; } .article h2 { margin-top: 48px; padding-top: 32px; } }
   </style>
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session identify reset opt_in_capturing opt_out_capturing set_config".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_tfrEvZMAfNvPzmof6dHMndPEDuLe4wNdPDBTUJA66Zww',{api_host:'https://eu.i.posthog.com',persistence:'memory',person_profiles:'identified_only',autocapture:false,capture_heatmaps:false,capture_dead_clicks:false,capture_exceptions:false,disable_session_recording:true,enable_recording_console_log:false,defaults:'2025-05-24'});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-cta]');if(a)posthog.capture('cta_click',{cta:a.getAttribute('data-cta'),cta_text:(a.textContent||'').trim().slice(0,80),cta_href:a.getAttribute('href'),page_path:location.pathname},{send_instantly:true})});
+</script>
 </head>
 <body>
   <div class="container">
@@ -784,8 +789,8 @@
 
       <p class="lede">AI advisory is senior guidance that helps a leadership team decide where AI pays off in its business, plan the change with named owners and measures, and get a first use case into use in its own work. Værksted sells it as two fixed-scope offers: planning for 105,000 kr and a first use case for 52,500 kr (ex VAT). It is led by Sebastian, who has trained 250+ product managers and co-built Maskin, an open-source workspace for people and AI agents.</p>
 
-      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb">Book a call</a></p>
-      <p>Or write to <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fadvisory%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>. We work in English and Danish.</p>
+      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb" data-cta="book_call">Book a call</a></p>
+      <p>Or write to <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fadvisory%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>. We work in English and Danish.</p>
 
       <h2 id="problem">The problem: pilots without an owner or a result</h2>
       <p>Most leadership teams are past the question of whether to use AI. There are licences, a few enthusiastic people and a handful of pilots. What is usually missing is three things: a clear view of where AI changes the result in your own product and technology work, a plan with a name against every item, and one use case that lives in the daily work instead of in a demo.</p>
@@ -914,12 +919,12 @@
       <p>Sebastian is an approved SMV:Digital advisor. The grant pays 50% of an external advisor's fee, at least 50,000 kr and at most 150,000 kr, and it applies to Danish SMEs only. It covers analysis, planning and follow-up advice, not software or building a system. Planning at 105,000 kr is the offer that can be assessed. A grant is not guaranteed. Check the official page for current terms.</p>
 
       <h3>How do we get started?</h3>
-      <p>Book a call using the link below or email <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fadvisory%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>. On the call we talk about your team and what has been tried. If advisory is the right fit, we agree scope in writing before any work starts. If it is not, we say so.</p>
+      <p>Book a call using the link below or email <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fadvisory%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>. On the call we talk about your team and what has been tried. If advisory is the right fit, we agree scope in writing before any work starts. If it is not, we say so.</p>
 
       <h2 id="contact">Talk to us</h2>
       <p>Tell us where your team is with AI and what you want to be true in six months. We will say whether advisory is the right next step.</p>
-      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb">Book a call with Sebastian</a></p>
-      <p>Or email <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fadvisory%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>. Back to the <a href="/">Værksted home page</a>.</p>
+      <p class="cta-row"><a class="cta" href="https://vaerksted.ai/bookseb" data-cta="book_call">Book a call with Sebastian</a></p>
+      <p>Or email <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fadvisory%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>. Back to the <a href="/">Værksted home page</a>.</p>
     </main>
 
     <!-- footer-start -->
@@ -928,6 +933,7 @@
         <div class="footer-mark">V<span class="ae">æ</span>rksted</div>
         <div>© MMXXVI · All rights reserved</div>
         <div>Mesh Firm ApS, CVR 41245271, Vesterbrogade 26, 1620 København V</div>
+        <div>This site counts visits and clicks on Book a call and email, using PostHog hosted in the EU. No cookies, nothing stored on your device, no recording, and we keep only your country, not your IP address.</div>
       </div>
       <nav class="footer-col" aria-label="Work with us">
         <div class="footer-label">Work with us</div>
@@ -946,8 +952,8 @@
       </nav>
       <div class="footer-col footer-right">
         <div class="footer-label">Elsewhere</div>
-        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fadvisory%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A">hej@vaerksted.ai</a>
-        <a href="https://vaerksted.ai/bookseb">Book a call</a>
+        <a href="mailto:hej@vaerksted.ai?subject=vaerksted.ai%2Fadvisory%2F&amp;body=How%20did%20you%20find%20us%3F%20%2F%20Hvordan%20fandt%20du%20os%3F%0A%0A" data-cta="email">hej@vaerksted.ai</a>
+        <a href="https://vaerksted.ai/bookseb" data-cta="book_call">Book a call</a>
         <a href="https://github.com/vaerksted-ai" rel="me noopener" target="_blank">GitHub</a>
         <span><span aria-current="true">EN</span> | <a href="/da/ai-raadgivning/" hreflang="da" lang="da">DA</a></span>
         <span>vaerksted.ai · vaerksted.org</span>
