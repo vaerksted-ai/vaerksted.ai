@@ -28,6 +28,10 @@ Drop the folder on any static host and you're live.
 
 All assets are referenced by absolute paths (`/favicon.svg` etc.), so the site must be served from the **root** of the domain, not a subpath.
 
+## Page type and language on events
+
+Every PostHog event carries **page_type** and **language**. A page sets its type with `<meta name="page-type" content="...">` just above its PostHog script; language is the page's `<html lang>`. A new page needs the meta tag, or its events say `other`. Allowed types: home, hub, article, guide, documentation, landing_page, case, comparison, changelog, legal, other.
+
 ## Shared header and footer
 
 `index.html` and `404.html` carry the same header and footer, each between a pair of comment markers: `header-start` / `header-end` and `footer-start` / `footer-end`. Any new page copies both blocks unchanged. A link goes in only once its target is live. Check that they are identical:
